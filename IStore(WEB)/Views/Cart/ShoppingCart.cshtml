@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/js/ShoppingCart.js"></script>
+<div class="site-content">
+    <main class="site-main  main-container no-sidebar">
+        <div class="container">
+            <div class="breadcrumb-trail breadcrumbs">
+                <ul class="trail-items breadcrumb">
+                    <li class="trail-item trail-begin">
+                        <a href="@Url.Action("Index", "Home")">
+                            <span>
+                                Home
+                            </span>
+                        </a>
+                    </li>
+                    <li class="trail-item trail-end active">
+                        <span>
+                            Shopping Cart
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="main-content-cart main-content col-sm-12">
+                    <h3 class="custom_blog_title">
+                        Shopping Cart
+                    </h3>
+                    <div class="page-main-content">
+                        <div class="shoppingcart-content">
+                            <form action="@Url.Action("Checkout", "Cart")" class="cart-form" id="cart-form">
+                                <table class="shop_table">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>thumbnail</th>
+                                            <th>name</th>
+                                            <th>price</th>
+                                            <th>quantity</th>
+                                            <th>subtotal</th>
+                                            <th>remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div class="control-cart">
+                                <a class="button btn-continue-shopping" href="@Url.Action("Index", "Home")">
+                                    Continue Shopping
+                                </a>
+                                <a class="button btn-cart-to-checkout" href="@Url.Action("Checkout", "Cart")">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

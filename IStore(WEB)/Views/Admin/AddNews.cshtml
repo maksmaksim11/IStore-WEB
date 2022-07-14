@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "NewNews";
+    Layout = "~/Views/Shared/AdminPanel/AdminLayout.cshtml";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        @Html.Label("Data")<br />
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "data", @type = "date", value = "2018-07-22" } })<br /><br />
+
+        @Html.Label("Message")<br />
+        @Html.TextArea("editor", new { htmlAttributes = new { @class = "message" } })<br /><br />
+
+        @Html.Label("Preview image")<br />
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "previewImage", @type = "file", @accept = ".png" } })<br /><br />
+        <img class="previewImageView" /><br /><br />
+
+
+        <button class="saveNews">Save</button>
+    </div>
+</div>
+
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

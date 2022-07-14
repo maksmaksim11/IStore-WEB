@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IStore_WEB_</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/4c09a507f0.js" crossorigin="anonymous"></script>
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/jquery-ui/css/jquery-ui.css" />
+    <link href="~/css/slick.css" rel="stylesheet" />
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <link href="~/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="~/css/magnific-popup.min.css" rel="stylesheet" />
+    <link href="~/css/lightbox.min.css" rel="stylesheet" />
+    <link href="~/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/css/jquery.scrollbar.min.css" rel="stylesheet" />
+    <link href="~/css/mobile-menu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/master_page/fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="~/master_page/css/master_page_style.css" />
+    <link rel="stylesheet" href="~/master_page/css/Layout.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @*<link rel="stylesheet" href="~/css/owl.carousel.min.css" />
+        <link href="~/css/animate.min.css" rel="stylesheet" />
+        <link href="~/css/jquery.scrollbar.min.css" rel="stylesheet" />
+        <link href="~/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <link href="~/css/slick.css" rel="stylesheet" />*@
+
+    @*<link href="~/css/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/css/lightbox.min.css" rel="stylesheet" />*@
+    @*<link href="~/css/magnific-popup.min.css" rel="stylesheet" />*@
+
+
+
+</head>
+<body>
+    <header class="header style7">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-left">
+                    <div class="header-message">
+                        Welcome to our online store!
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <div class="header-language">
+                        <div class="tanajil-language tanajil-dropdown">
+                            <a href="javascript:;" class="active language-toggle" data-tanajil="tanajil-dropdown">
+                                <span>
+                                    English (USD)
+                                </span>
+                            </a>
+                            <ul class="tanajil-submenu">
+                                <li class="switcher-option">
+                                    <a href="javascript:;">
+                                        <span>
+                                            French (EUR)
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="switcher-option">
+                                    <a href="javascript:;">
+                                        <span>
+                                            Japanese (JPY)
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="header-user-links">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a href="@Url.Action("LoginRegister","Account")">Login or Register</a>
+                            </li>
+                        }
+                        else
+                        {
+                            @if (User.IsInRole("admin"))
+                            {
+                                <li class="changeAdminPage">
+                                    <a href="javascript:void(0);">@User.Identity.Name</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="changeUserPage">
+                                    <a href="javascript:void(0);">@User.Identity.Name</a>
+                                </li>
+                            }
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="main-header">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-md-3 col-xs-7 col-ts-12 header-element">
+                        <div class="logo">
+                            <a href="@Url.Action("Index","Home")">
+                                <img src="~/Content/img/istore_logo.png" alt="logo" style="max-height:60px" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-sm-8 col-md-6 col-xs-5 col-ts-12">
+                        <div class="block-search-block">
+                            <form class="form-search form-search-width-category">
+                                <div class="form-content">
+                                    <div class="category">
+                                        <select title="cate" data-placeholder="All Categories" class="chosen-select"
+                                                tabindex="1">
+                                            <option>Phones</option>
+                                        </select>
+                                    </div>
+                                    <div class="inner tanajil-dropdown" id="mydrop">
+                                        <input type="text" class="input" name="s" value="" placeholder="Search here">
+
+                                        <div class="pr-popup-quickview tanajil-submenu" id="prod">
+                                            <ul class="ul-prod">
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <button class="btn-search" type="submit">
+                                        <span class="icon-search"></span>
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 col-md-3 col-xs-12 col-ts-12">
+                        <div class="header-control">
+                            <div class="block-minicart tanajil-mini-cart block-header tanajil-dropdown">
+                                <a href="javascript:void(0);" class="shopcart-icon cartpartial" data-tanajil="tanajil-dropdown">
+                                    Cart
+                                    <span class="count">
+                                        0
+                                    </span>
+                                </a>
+
+                                <div class="shopcart-description tanajil-submenu" id="cartpartialview">
+                                </div>
+                            </div>
+
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <div class="block-account block-header tanajil-dropdown">
+                                    <a href="javascript:void(0);" data-tanajil="tanajil-dropdown">
+                                        <span class="flaticon-user"></span>
+                                    </a>
+                                    <div class="header-account tanajil-submenu">
+                                        <div class="header-user-form-tabs">
+                                            <ul class="tab-link">
+                                                <li class="active">
+                                                    <a data-toggle="tab" aria-expanded="true" href="index.html#header-tab-login">Login</a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="tab" aria-expanded="true" href="index.html#header-tab-rigister">Register</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-container">
+                                                <div id="header-tab-login" class="tab-panel active">
+                                                    <form asp-route-ReturnUrl="@Context.Request.Path" asp-controller="Account" asp-action="Login" method="post" class="login form-login">
+                                                        <p class="form-row form-row-wide">
+                                                            <input name="Login" type="email" placeholder="Email" class="input-text">
+                                                        </p>
+                                                        <p class="form-row form-row-wide">
+                                                            <input name="Password" type="password" class="input-text" placeholder="Password">
+                                                        </p>
+                                                        <p class="form-row">
+                                                            <label class="form-checkbox">
+                                                                <input name="IsRememberMe" type="checkbox" class="input-checkbox">
+                                                                <span>
+                                                                    Remember me
+                                                                </span>
+                                                            </label>
+                                                            <input type="submit" class="button" value="Login">
+                                                        </p>
+                                                        <p class="lost_password">
+                                                            @*//todo REMEMBER Me*@
+                                                            <a href="">Lost your password?</a>
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                                <div id="header-tab-rigister" class="tab-panel">
+                                                    <form method="post" asp-route-ReturnUrl="@Context.Request.Path" asp-controller="Account" asp-action="Register" class="register form-register">
+                                                        <p class="form-row form-row-wide">
+                                                            <input name="Login" type="email" placeholder="Email" class="input-text">
+                                                        </p>
+                                                        <p class="form-row form-row-wide">
+                                                            <input name="Password" type="password" class="input-text" placeholder="Password">
+                                                        </p>
+                                                        <p class="form-row">
+                                                            <input type="submit" class="button" value="Register">
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="block-account block-header tanajil-dropdown">
+                                    <a href="javascript:void(0);" data-tanajil="tanajil-dropdown">
+                                        <span class="flaticon-user"></span>
+                                    </a>
+                                    <div class="header-account tanajil-submenu">
+                                        <div class="header-user-form-tabs">
+                                            <ul class="tab-link">
+                                                <li class="active">
+                                                    <a data-toggle="tab" aria-expanded="true" href="index.html#header-tab-login">User @User.Identity.Name</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-container">
+                                                <div id="header-tab-login" class="tab-panel active">
+                                                    <form asp-route-ReturnUrl="@Context.Request.Path" asp-controller="Account" asp-action="Logout" method="post" class="login form-login">
+                                                        <p class="form-row form-row-wide">
+                                                            <input value="LOGOUT" type="submit" placeholder="LogOut" class="button">
+                                                        </p>
+                                                    </form>
+                                                    @*//todo add cabinet*@
+                                                    <form>
+                                                        @if (User.IsInRole("admin"))
+                                                        {
+                                                            <p class="form-row form-row-wide">
+                                                                <input value="AdminPanel" type="button" placeholder="User Cabinet" class="button changeAdminPage">
+                                                            </p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p class="form-row form-row-wide">
+                                                                <input value="User Cabinet" type="button" placeholder="User Cabinet" class="button changeUserPage">
+                                                            </p>
+                                                        }
+
+                                                        <p class="lost_password">
+                                                            <a href="javascript:;">Lost your password?</a>
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+
+
+                            <a class="menu-bar mobile-navigation menu-toggle" href="javascript:;">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav-container rows-space-20">
+            <div class="container">
+                <div class="header-nav-wapper main-menu-wapper">
+                    <div class="vertical-wapper block-nav-categori">
+                        <div class="block-title">
+                            <span class="icon-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <span class="text">All Categories</span>
+                        </div>
+                        <div class="block-content verticalmenu-content">
+                            <ul id="category" class="tanajil-nav-vertical vertical-menu tanajil-clone-mobile-menu">
+                                @*<li class="menu-item">
+                                        <a href="index.html#" class="tanajil-menu-item-title" title="New Arrivals">New Arrivals</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Hot Sale" href="index.html#" class="tanajil-menu-item-title">Hot Sale</a>
+                                    </li>*@
+                                @*<li class="menu-item menu-item-has-children">
+                                        <a title="Accessories" href="index.html#" class="tanajil-menu-item-title">Accessories</a>
+                                        <span class="toggle-submenu"></span>
+                                        <ul role="menu" class=" submenu">
+                                            <li class="menu-item">
+                                                <a title="Audio" href="index.html#" class="tanajil-item-title">Audio</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a title="Interior" href="index.html#" class="tanajil-item-title">Interior</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a title="New Arrivals" href="index.html#" class="tanajil-item-title">New Arrivals</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a title="Accessories" href="index.html#" class="tanajil-item-title">Accessories</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a title="Storage" href="index.html#" class="tanajil-item-title">Storage</a>
+                                            </li>
+                                        </ul>
+                                    </li>*@
+                                @*<li class="menu-item">
+                                        <a title="Interior" href="index.html#" class="tanajil-menu-item-title">Interior</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Lighting" href="index.html#" class="tanajil-menu-item-title">Lighting</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Wheels" href="index.html#" class="tanajil-menu-item-title">Wheels</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Tires" href="index.html#" class="tanajil-menu-item-title">Tires</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Exterior" href="index.html#" class="tanajil-menu-item-title">Exterior</a>
+                                    </li>*@
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-nav">
+                        <div class="container-wapper">
+                            <ul class="tanajil-clone-mobile-menu tanajil-nav main-menu " id="menu-main-menu">
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Index","Home")" class="tanajil-menu-item-title" title="Home">Home</a>
+                                    @*<span class="toggle-submenu"></span>
+                                        <ul class="submenu">
+                                            <li class="menu-item">
+                                                <a href="index.html">Home 01</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="home2.html">Home 02</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="home3.html">Home 03</a>
+                                            </li>
+                                        </ul>*@
+                                </li>
+                                <li class="menu-item menu-item @*-has-children*@">
+                                    <a href="@Url.Action("Index","Home")" class="tanajil-menu-item-title" title="Shop">Shop</a>
+                                    @*<span class="toggle-submenu"></span>
+                                        <ul class="submenu">
+                                            <li class="menu-item">
+                                                <a href="gridproducts.html">Grid Fullwidth</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="gridproducts_leftsidebar.html">Grid Left sidebar</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="gridproducts_bannerslider.html">Grid Bannerslider</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="listproducts.html">List</a>
+                                            </li>
+                                        </ul>*@
+                                </li>
+                                @*<li class="menu-item  menu-item-has-children item-megamenu">
+                                        <a href="index.html#" class="tanajil-menu-item-title" title="Pages">Pages</a>
+                                        <span class="toggle-submenu"></span>
+                                        <div class="submenu mega-menu menu-page">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 menu-page-item">
+                                                    <div class="tanajil-custommenu default">
+                                                        <h2 class="widgettitle">Shop Pages</h2>
+                                                        <ul class="menu">
+                                                            <li class="menu-item">
+                                                                <a href="shoppingcart.html">Shopping Cart</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="checkout.html">Checkout</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="contact.html">Contact us</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="404page.html">404</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="login.html">Login/Register</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 menu-page-item">
+                                                    <div class="tanajil-custommenu default">
+                                                        <h2 class="widgettitle">Product</h2>
+                                                        <ul class="menu">
+                                                            <li class="menu-item">
+                                                                <a href="productdetails-fullwidth.html">Product Fullwidth</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="productdetails-leftsidebar.html">
+                                                                    Product left
+                                                                    sidebar
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="productdetails-rightsidebar.html">
+                                                                    Product right
+                                                                    sidebar
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 menu-page-item">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 menu-page-item">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>*@
+                                @*<li class="menu-item  menu-item-has-children">
+                                        <a href="inblog_right-siderbar.html" class="tanajil-menu-item-title"
+                                           title="Blogs">Blogs</a>
+                                        <span class="toggle-submenu"></span>
+                                        <ul class="submenu">
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="index.html#" class="tanajil-menu-item-title" title="Blog Style">Blog Style</a>
+                                                <span class="toggle-submenu"></span>
+                                                <ul class="submenu">
+                                                    <li class="menu-item">
+                                                        <a href="bloggrid.html">Grid</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="bloglist.html">List</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="bloglist-leftsidebar.html">List Sidebar</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="index.html#" class="tanajil-menu-item-title" title="Post Layout">Post Layout</a>
+                                                <span class="toggle-submenu"></span>
+                                                <ul class="submenu">
+                                                    <li class="menu-item">
+                                                        <a href="inblog_left-siderbar.html">Left Sidebar</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="inblog_right-siderbar.html">Right Sidebar</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>*@
+                                <li class="menu-item">
+                                  <a href="@Url.Action("Contact","Information")">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="header-device-mobile">
+        <div class="wapper">
+            <div class="item mobile-logo">
+                <div class="logo">
+                    <a href="@Url.Action("Index","Home")">
+                        <img src="~/Content/img/istore_logo.png" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="item item mobile-search-box has-sub">
+                <a href="javascript:;">
+                    <span class="icon">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                </a>
+                <div class="block-sub">
+                    <a href="javascript:;" class="close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                    <div class="header-searchform-box">
+                        <form class="header-searchform">
+                            <div class="searchform-wrap">
+                                <input type="text" class="search-input" placeholder="Enter keywords to search...">
+                                <input type="submit" class="submit button" value="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="item mobile-settings-box has-sub">
+                <a href="javascript:;">
+                    <span class="icon">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </span>
+                </a>
+                <div class="block-sub">
+                    <a href="javascript:;" class="close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                    <div class="block-sub-item">
+                        <h5 class="block-item-title">Currency</h5>
+                        <form class="currency-form tanajil-language">
+                            <ul class="tanajil-language-wrap">
+                                <li class="active">
+                                    <a href="javascript:;">
+                                        <span>
+                                            English (USD)
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span>
+                                            French (EUR)
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span>
+                                            Japanese (JPY)
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="item menu-bar">
+                <a class=" mobile-navigation  menu-toggle" href="javascript:;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer style7">
+        <div class="container">
+            <div class="container-wapper">
+                <div class="row">
+                    <div class="box-footer col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="widget-box">
+                            <div class="single-img">
+                                <a href="@Url.Action("Index","Home")">
+                                    <img src="~/Content/img/istore_lightlogo.png" alt="img" style="width:120px">
+                                </a>
+                            </div>
+                            <ul class="menu">
+                                <li class="menu-item">
+                                    <a href="javascript:;">
+                                        <span class="flaticon-placeholder"></span>49084, Украина,
+                                        г. Днепр, Дмитрия Яворницкого, 101
+                                        @*45 Grand Central Terminal New
+                                            York,NY 1017 United State USA*@
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="javascript:;"><span class="fa fa-phone"></span>(073) 797-88-90  -  (098) 909-88-08 @*(+123) 456 789 - (+123) 666 888*@</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="javascript:;"><span class="fa fa-envelope-o"></span>dnepr@itstep.org</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="javascript:void(0);">
+                                        <span class="flaticon-clock"></span> Пн-пт с 9:00 до 19:00
+                                        Сб-вс с 9:00 до 16:00@*Mon-Sat 9:00pm - 5:00pm Sun : Closed*@
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-footer col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                        <div class="tanajil-custommenu default">
+                            <h2 class="widgettitle">Quick Menu</h2>
+                            <ul class="menu">
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Index","Home")">Home</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Index","Home")">Shop</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Index","Home")">About</a>
+                                </li>
+                                @*<li class="menu-item">
+                                        <a href="index.html#">Lighting</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="index.html#">Wheels</a>
+                                    </li>*@
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-footer col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                        <div class="tanajil-custommenu default">
+                            <h2 class="widgettitle">Information</h2>
+                            <ul class="menu">
+                                <li class="menu-item">
+                                    <a href="javascript:;">FAQs</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="javascript:;">Track Order</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="javascript:;">Delivery</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Contact","Information")">Contact Us</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="@Url.Action("Index","Home")">Return</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-footer col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tanajil-newsletter style1">
+                            <div class="newsletter-head">
+                                <h3 class="title">Newsletter</h3>
+                            </div>
+                            
+                            <div class="newsletter-form-wrap">
+                                <div class="list">
+                                    Get notified of new products, limited releases, and more.
+                                </div>
+                                <input type="email" class="input-text email email-newsletter"
+                                       placeholder="Your email letter">
+                                <button class="button btn-submit submit-newsletter">SUBSCRIBE</button>
+                            </div>
+                        </div>
+                        <div class="tanajil-socials">
+                            <ul class="socials">
+                                <li>
+                                    <a href="https://uk-ua.facebook.com/" class="social-item" target="_blank">
+                                        <i class="icon fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" class="social-item" target="_blank">
+                                        <i class="icon fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" class="social-item" target="_blank">
+                                        <i class="icon fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 border-custom">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="footer-end">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="coppyright">
+                                Copyright © @DateTime.Now.Year
+                                <a href="@Url.Action("Index","Home")">IStore</a>
+                                . All rights reserved
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="tanajil-payment">
+                                <img src="~/master_page/images/payments.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-device-mobile">
+        <div class="wapper">
+            <div class="footer-device-mobile-item device-home">
+                <a href="@Url.Action("Index", "Home")">
+                    <span class="icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                    Home
+                </a>
+            </div>
+            <div class="footer-device-mobile-item device-home device-wishlist">
+                <a href="#">
+                    <span class="icon">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </span>
+                    Wishlist
+                </a>
+            </div>
+            <div class="footer-device-mobile-item device-home device-cart">
+                <a href="@Url.Action("ShoppingCart", "Cart")">
+                    <span class="icon">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <span class="count-icon">
+                            0
+                        </span>
+                    </span>
+                    <span class="text">Cart</span>
+                </a>
+            </div>
+            <div class="footer-device-mobile-item device-home device-user">
+                <a href="login.html">
+                    <span class="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    Account
+                </a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="backtotop">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+    
+    <script src="~/js/jquery-1.12.4.min.js"></script>
+    <script src="~/js/jquery.plugin-countdown.min.js"></script>
+    <script src="~/js/jquery-countdown.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/magnific-popup.min.js"></script>
+    <script src="~/js/isotope.min.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery.scrollbar.min.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery-ui.min.js"></script>
+    <script src="~/js/mobile-menu.js"></script>
+    <script src="~/js/chosen.min.js"></script>
+    <script src="~/js/slick.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery.elevateZoom.min.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery.actual.min.js"></script>
+    <script src="~/lib/fancybox/source/jquery.fancybox.js"></script>
+    <script src="~/js/lightbox.min.js"></script>
+    <script src="~/js/owl.thumbs.min.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery.scrollbar.min.js"></script>
+    <script src="~/js/frontend-plugin.js"></script>
+    <script src="~/js/LocalList.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/Category.js"></script>
+    <script src="~/js/HomeIndex.js"></script>
+    <script src="~/js/Layout.js"></script>
+    <script>
+        var MyAppUrlSettings = "@Url.Action("GetProducts","Product")";
+        var ClientUrl = "@Url.Action("Index","Client")";
+        var AdminUrl = "@Url.Action("Index","Admin")";
+        var NewsUrl = "@Url.Action("SubscribeNews","Home")";
+       
+    </script>
+    @RenderSection("Scripts", false)
+</body>
+</html>
+
+

@@ -1,0 +1,208 @@
+﻿@model IEnumerable<Domain.EF_Models.Product>
+@{
+    ViewData["Title"] = "ProductEdit";
+    Layout = "~/Views/Shared/AdminPanel/AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/product-edit.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-9">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            This week
+                        </button>
+                    </div>
+                </div>
+                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="683" height="288" style="display: block; width: 683px; height: 288px;"></canvas>
+
+                <div class="row mb-5">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="file" type="file" class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
+                                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <input type="hidden" value="@User.Identity.Name" name="UserName" />
+                                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon">Button</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            @if (Model != null)
+            {
+                <div class="table-responsive table-wrapper">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">VendorCode</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">BrandId</th>
+                                <th scope="col">RetailPrice</th>
+                                <th scope="col">CategoryId</th>
+                                <th scope="col">PackageId</th>
+                                <th scope="col">CountInStorage</th>
+                                <th scope="col">WarrantyMonth</th>
+                                <th scope="col">Series</th>
+                                <th scope="col">Model</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                                <tr class="table-row">
+                                    <td id="tId" hidden="hidden">@product.Id</td>
+                                    <td id="tTitle">@product.Title</td>
+                                    <td id="tType">@product.Type</td>
+                                    <td id="tVendorCode">@product.VendorCode</td>
+                                    <td id="tDescription">@product.Description</td>
+                                    <td id="tBrandId">@product.BrandId</td>
+                                    <td id="tRetailPrice">@product.RetailPrice</td>
+                                    <td id="tCategoryId">@product.CategoryId</td>
+                                    <td id="tPackageId">@product.PackageId</td>
+                                    <td id="tCountInStorage">@product.CountInStorage</td>
+                                    <td id="tWarrantyMonth">@product.WarrantyMonth</td>
+                                    <td id="tSeries">@product.Series</td>
+                                    <td id="tModel">@product.Model</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-9">
+                <div class="container-fluid">
+                    <h4 class="mb-3">Edit Product</h4>
+                    <form class="needs-validation" novalidate="">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input id="hiddenId" type="text" hidden="hidden" />
+                                <label>Title</label>
+                                <input type="text" class="form-control" id="title" required="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Type</label>
+                                <input type="text" class="form-control" id="type" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Vendor Code</label>
+                                <input type="text" class="form-control" id="vendorCode" required="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Brand Id</label>
+                                <input type="text" class="form-control" id="brandId" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Retail Price</label>
+                                <input type="text" class="form-control" id="retailPrice" required="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Category Id</label>
+                                <input type="text" class="form-control" id="categoryId" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Package Id</label>
+                                <input type="text" class="form-control" id="packageId" required="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Count In Storage</label>
+                                <input type="text" class="form-control" id="countInStorage" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label>Warranty Month</label>
+                                <input type="text" class="form-control" id="warrantyMonth" required="">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label>Series</label>
+                                <input type="text" class="form-control" id="series" required="">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label>Model</label>
+                                <input type="text" class="form-control" id="model" required="">
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <label>Description</label>
+                            <textarea class="form-control" id="descriptionTextarea"></textarea>
+                        </div>
+
+                        <p>
+                            <button id="btnCharacteristic" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#characteristicmain" aria-expanded="false" aria-controls="collapseExample">
+                                Characteristic
+                            </button>
+                        </p>
+
+                        <div class="collapsed" id="characteristicmain">
+                            <div id="charcteristicContainer">
+
+                            </div>
+                        </div>
+
+                        <hr class="mb-4">
+
+                        <button id="editProductBtn" class="btn btn-primary btn-sm" type="button">Edit</button>
+                        <button id="uploadBtn" class="btn btn-primary btn-sm" type="button">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/js/jquery-1.12.4.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    @*<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>*@
+    @*<script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="~/js/product-edit.js"></script>
+</body>
+</html>

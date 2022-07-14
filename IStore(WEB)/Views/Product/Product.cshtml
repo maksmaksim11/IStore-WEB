@@ -1,0 +1,143 @@
+﻿
+
+@model Domain.EF_Models.Product
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+<div class="main-content main-content-details single left-sidebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-trail breadcrumbs">
+                    <ul class="trail-items breadcrumb">
+                        <li class="trail-item trail-begin">
+                            <a href="@Url.Action("index","home")">Home</a>
+                        </li>
+                        @*<li class="trail-item">
+                                <a href="productdetails-leftsidebar.html#">Interior</a>
+                            </li>*@
+                        <li class="trail-item trail-end active">
+                            Product
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content-area content-details col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="site-main">
+                    <div class="details-product">
+                        <div style="display:none">
+                            <span class="product-id">@Model.Id</span>
+                            <span class="product-model">@Model.Model</span>
+                            <span class="product-previewimage">@Model.PreviewImage</span>
+                            <span class="product-retailprice">@Model.RetailPrice</span>
+                        </div>
+                        <div class="details-thumd">
+                            <div class="image-preview-container image-thick-box image_preview_container">
+                                <img id="img_zoom" data-zoom-image="@Model.PreviewImage" src="@Model.PreviewImage" alt="img">
+                                <a href="#" class="btn-zoom open_qv"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="product-preview image-small product_preview">
+                                <div id="thumbnails" class="thumbnails_carousel owl-carousel" data-nav="true" data-autoplay="false" data-dots="false" data-loop="false" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":3},"600":{"items":3},"1000":{"items":3}}'>
+                                    <a href="#" data-image="@Model.PreviewImage" data-zoom-image="@Model.PreviewImage" class="active">
+                                        <img src="@Model.PreviewImage" data-large-image="@Model.PreviewImage" alt="img">
+                                    </a>
+                                    @foreach (var item in Model.Images)
+                                    {
+                                        <a href="#" data-image="@item.FilePath" data-zoom-image="@item.FilePath" class="active">
+                                            <img src="@item.FilePath" data-large-image="@item.FilePath" alt="img">
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-infor">
+                            <h1 class="product-title">
+                                @Model.Title
+                            </h1>
+                            <div class="stars-rating">
+                                <div class="star-rating">
+                                    <span class="star-1"></span>
+                                </div>
+                                <div class="count-star">
+                                    @Model.Rating
+                                </div>
+                            </div>
+                            <div class="availability">
+                                availability:
+                                <a href="@Url.Action("index","home")">in Stock</a>
+                            </div>
+                            <div class="price">
+                                <span>@Model.RetailPrice</span>
+                            </div>
+                            <div class="product-details-description">
+                                <ul>
+                                    Brand
+                                    <li>@Model.Brand.Name</li>
+                                    Category
+                                    <li>@Model.Category.Title</li>
+                                    Type
+                                    <li>@Model.Type</li>
+                                    Category
+                                    <li>@Model.Category.Title</li>
+                                    Package
+                                    <li>@Model.Package.Weight</li>
+                                    <li>@Model.Package.Volume</li>
+
+                                    Warranty Month
+                                    <li>@Model.WarrantyMonth</li>
+                                    Vendor Code
+                                    <li>@Model.VendorCode</li>
+                                </ul>
+                            </div>
+
+                            <div class="group-button">
+
+                                <div class="quantity-add-to-cart">
+                                    <div class="quantity">
+                                        <div class="control">
+                                            <a class="btn-number qtyminus quantity-minus" href="#">-</a>
+                                            <input type="text" data-step="1" data-min="1" value="1" title="Qty" class="input-qty qty" size="4">
+                                            <a href="" class="btn-number qtyplus quantity-plus">+</a>
+                                        </div>
+                                    </div>
+                                    <button class="single_add_to_cart_button button">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: left;"></div>
+                </div>
+            </div>
+            <div class="sidebar sidebar-details col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <div class="wrapper-sidebar">
+                    <div class="widget widget-categories">
+                        <h3 class="widgettitle">Categories</h3>
+                        <ul class="list-categories">
+
+                            <li>
+                                <input type="checkbox" id="cb6">
+                                <label for="cb6" class="label-text">
+                                    @*@await Html.PartialAsync("CategoryPartialView");*@
+                                </label>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/product.js"></script>
+}
+
+@await Html.PartialAsync("ProductCharacteristicPart",Model);

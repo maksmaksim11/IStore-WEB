@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="tab-container" style="overflow-y:auto; overflow-x:hidden">
+    <div id="bestseller" class="tab-panel active">
+        <div class="tanajil-product">
+            <ul class="row list-products auto-clear equal-container product-grid">
+                @for (int i = 0; i < 8; i++)
+                {
+                    <li class="product-item  col-lg-3 col-md-4 col-sm-6 col-xs-6 col-ts-12 style-1">
+                        <div class="product-inner equal-element" style="height: 373px;">
+                            <div class="product-top" style="display:none">
+                                <div class="flash">
+                                    <span class="onnew">
+                                        <span class="text">
+                                            new
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="product-thumb">
+                                <div class="thumb-inner">
+                                    <input class="mainProductId" type="hidden" />
+                                    <a href="">
+                                        <img src="" alt="img" class="productPreview" style="display:none">
+                                    </a>
+                                    <div class="thumb-group">
+                                        <div class="yith-wcwl-add-to-wishlist">
+                                            <div class="yith-wcwl-add-button">
+                                                <a href="index.html#">Add to Wishlist</a>
+                                            </div>
+                                        </div>
+                                        <a class="button quick-wiew-button">Quick View</a>
+                                        <div class="loop-form-add-to-cart">
+                                            <button class="single_add_to_cart_button button product_to_cart">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="product-info">
+                                <h5 class="product-name product_title">
+                                    <a href="" class="productTitle"></a>
+                                    <br />
+                                    <a href="" class="productModel"></a>
+                                </h5>
+                                <div class="group-info">
+                                    <div class="stars-rating" style="display:none">
+                                        <div class="star-rating">
+                                            <span class="star-3">
+
+                                            </span>
+                                        </div>
+                                        <div class="count-star">
+                                            (3)
+                                        </div>
+                                    </div>
+                                    <div class="price">
+                                        <del>
+                                            @*@(String.Format("{0: 0,0}", (Model.RetailPrice * 1.15)))*@
+                                        </del>
+                                        <ins>
+                                            @*@(String.Format("{0: 0,0}", Model.RetailPrice))*@
+
+                                        </ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

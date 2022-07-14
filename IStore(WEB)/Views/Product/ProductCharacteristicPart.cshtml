@@ -1,0 +1,263 @@
+﻿@model Domain.EF_Models.Product
+
+<div id="productId" hidden>@Model.Id</div>
+<div class="details-page">
+    <div class="main-content main-content-details single no-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="content-area content-details full-width col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                    <div class="site-main">
+
+
+
+                        <div class="tab-details-product">
+
+
+                            <ul class="tab-link">
+                                <li class="">
+                                    <a data-toggle="tab" aria-expanded="false" href="productdetails-fullwidth.html#product-descriptions">Descriptions </a>
+                                </li>
+                                <li class="active">
+                                    <a data-toggle="tab" aria-expanded="true" href="productdetails-fullwidth.html#information">Information </a>
+                                </li>
+                                <li class="" id="review-block">
+                                    <a data-toggle="tab" aria-expanded="true" href="productdetails-fullwidth.html#reviews">Reviews</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-container">
+                                <div id="product-descriptions" class="tab-panel">
+                                    <p>
+                                        @Model.Description;
+                                    </p>
+                                </div>
+
+                                <div id="information" class="tab-panel active">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            @foreach (var cahr in Model.ProductCharacteristics)
+                                            {
+                                                <tr>
+                                                    <td>@cahr.Title</td>
+                                                    <td>@cahr.Value</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="reviews" class="tab-panel">
+                                    @await Html.PartialAsync("GetInputCommentPartial")
+                                    <h2 class="reviews-title">
+                                  review(s) for
+            <span>@Model.Title @Model.Model</span>
+        </h2>
+                                    <div class="reviews-tab">
+                                        <div class="comments">
+                                            <ol class="commentlist"></ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+<script>
+    $(function () {
+
+    //     $.fn.stars = function(options) {
+
+    //    var settings = $.extend({
+    //        stars: 5,
+    //        emptyIcon: 'fa-star-o',
+    //        filledIcon: 'fa-star',
+    //        color: '#E4AD22',
+    //        starClass: '',
+    //        value: 0,
+    //        text: null,
+    //        click: function() {}
+    //    }, options);
+
+    //    var block = this;
+
+    //    for (var x = 0; x < settings.stars; x++) {
+    //        var icon = $("<i>").addClass("fa").addClass(settings.emptyIcon).addClass(settings.starClass);
+
+    //        if (settings.text) {
+    //            icon.attr("data-rating-text", settings.text[x]);
+    //        }
+
+    //        if (settings.color !== "none") {
+    //            icon.css("color", settings.color)
+    //        }
+
+    //        this.append(icon);
+    //    }
+
+    //    if (settings.text) {
+    //        var textDiv = $("<div>").addClass("rating-text");
+    //        this.append(textDiv);
+    //    }
+
+    //         var stars = this.find("i");
+             
+    //    stars.on("mouseover", function() {
+    //        var index = $(this).index() + 1;
+    //        var starsHovered = stars.slice(0, index);
+    //        events.removeFilledStars(stars, settings);
+    //        events.fillStars(starsHovered, settings);
+
+    //        if (settings.text) block.find(".rating-text").html($(this).data("rating-text"));
+    //    }).on("mouseout", function() {
+    //        events.removeFilledStars(stars, settings);
+    //        events.fillStars(stars.filter(".selected"), settings);
+    //        if (settings.text) block.find(".rating-text").html("");
+    //    }).on("click", function() {
+    //        var index = $(this).index();
+    //        settings.value = index + 1;
+    //        stars.removeClass("selected").slice(0, settings.value).addClass("selected");
+    //        settings.click.call(stars.get(index), settings.value);
+    //    });
+
+    //    events = {
+    //        removeFilledStars: function(stars, s) {
+    //            stars.removeClass(s.filledIcon).addClass(s.emptyIcon);
+    //            return stars;
+    //        },
+
+    //        fillStars: function(stars, s) {
+    //            stars.removeClass(s.emptyIcon).addClass(s.filledIcon);
+    //            return stars;
+    //        }
+    //    };
+
+    //    if (settings.value > 0) {
+    //        var starsToSelect = stars.slice(0, settings.value);
+    //        events.fillStars(starsToSelect, settings).addClass("selected");
+    //    }
+
+    //    return this;
+    //};
+    //    var starsSelected;
+    //      $(".star-sel").stars({
+    //        text: ["Bad", "Not so bad", "hmmm", "Good", "Perfect"], stars: 5, click: function (i) {
+    //              starsSelected = i;
+    //        }
+    //            });
+
+            $("#review-block").click(function () {
+            $(".tab-container .tab-panel").removeClass("active");
+            $(".tab-container #reviews").addClass("active");
+                var productId = $("#productId").text().trim();
+            $(".commentlist").load('@Url.Action("GetCommentsPartial","Product")?id='+productId);
+            });
+        var userId = "6cab4e64-cd04-4ba5-94d4-3c9b5ad2e78f";
+      
+        @*$(".send-comment").click(function () {
+            var comment = {
+                ProductId: $("#productId").text().trim(),
+                ParentId: null,
+                UserId: userId,
+                Text: $(this).closest(".comment-form-review").find("textarea").val().trim(),
+                Raiting: starsSelected,
+            }
+            //var el = $(".reviews-tab").append("<ol></ol>").addClass("commentlist").
+            //    prepend("<li></li>").addClass("conment");
+            //alert(el.html());
+            //$("body").html(el.html());
+                
+            alert("send-comment trigerred");
+            $.post('@Url.ActionLink("AddComment", "Product")', { comment: JSON.stringify(comment) }, function (data) {
+
+                var com = $(".conment").clone();
+                com.html("<li class='conment'>" + com.html() + "</li>");
+                com.find(".star-rating > span").removeClass().addClass("star-" + starsSelected);
+                com.find(".author").text(data);
+                com.find(".time").text(data.date);
+                com.find(".description p").text(data.text);
+                com.find(".fa-thumbs-up").removeClass().addClass("fa fa-thumbs-up").next().text("0");
+                com.find(".fa-thumbs-up").on("html", $(this), Fun)
+                com.find(".fa-thumbs-down").removeClass().addClass("fa fa-thumbs-down").next().text("0");
+                $(".commentlist").append(com.html());
+
+
+                // var com = $(".commentlist .conment").eq(0).clone(true,true);
+                // com.find(".star-rating > span").removeClass().addClass("star-" + starsSelected);
+                //    com.find(".author").text(comment["User.FirstName"]);
+                //     com.find(".time").text(comment["Date"]);
+                //    com.find(".description p").text(comment["Text"]);
+                //    com.find(".fa-thumbs-up").removeClass().addClass("fa fa-thumbs-up").next().text("0");
+                //    alert("hello");
+                //  //  com.find(".fa-thumbs-up").on("html",$(this),Fun)
+                //    com.find(".fa-thumbs-down").removeClass().addClass("fa fa-thumbs-down").next().text("0");
+                //$(".commentlist").append(com.html());
+            }).fail(alert("fail"));
+        });*@
+        function Fun() {
+            alert("hello 2");
+        }
+        $(".fa-thumbs-up").click(function() { alert("hello")});
+        function thumbsUp() {
+            
+             var like = {
+        UserId:undefined,
+        CommentId:undefined,
+        ProductId:undefined,
+        IsLikeRemoved:false,
+        IsLiked: false,
+        IsDataSent:false
+        }
+        var likeTotal = {
+            Id: 0,
+            LikesTotal:0,
+            DislikesTotal:0
+        }
+        var userId = "6cab4e64-cd04-4ba5-94d4-3c9b5ad2e78f";
+   
+            var likeNew = Object.create(like);
+            var likeTotalNew = Object.create(likeTotal);
+         var thisThumbDown = $(this).parent().find(".fa-thumbs-down");
+        if (thisThumbDown.hasClass("active-btn")) thisThumbDown.trigger("click");
+        $(this).toggleClass("active-btn");
+          var likes =  $(this).next("span").text().trim();
+            likes = parseInt(likes);
+            var commentId = $(this).parent().find("#commentId").text().trim();
+        likeNew.UserId = userId;
+            likeNew.CommentId = commentId;
+        likeNew.ProductId = $("#productId").text().trim();
+            likeNew.IsDataSent = false;
+            likeTotalNew.Id = commentId;
+            likeTotalNew.DislikesTotal = thisThumbDown.next("span").text().trim();
+            if ($(this).hasClass("active-btn")) {
+                likes++;
+                $(this).next("span").text(likes);
+                likeNew.IsLiked = true;
+                likeNew.IsLikeRemoved = false;
+                likeTotalNew.LikesTotal = likes;
+                setLikeState(likeNew);
+                setLikeTotal(likeTotalNew);
+            }
+            else {
+                likes--;
+                $(this).next("span").text(likes);
+                likeNew.IsLikeRemoved = true;
+                 likeTotalNew.LikesTotal = likes;
+                setLikeState(likeNew);
+                  setLikeTotal(likeTotalNew);
+        }
+ 
+        }//func
+
+
+       });//main
+
+</script>

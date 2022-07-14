@@ -1,0 +1,301 @@
+﻿
+@*@model IEnumerable<Domain.EF_Models.Comment>*@
+@model IEnumerable<CommentViewModel>
+<style>
+    .active-btn {
+        color: blue;
+    }
+
+    .pop-up-menu {
+        margin-right: 3%;
+        margin-left: 2%;
+        margin-top: 5px;
+        display: none;
+        padding: 5px
+    }
+
+    .description {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
+    .input-area{
+        margin-top:20px;
+    }
+</style>
+
+
+@*<div class="comments">*@
+@*<h2 class="reviews-title">
+        @Model.Count() review(s) for
+        <span>@Model.ElementAt(0).Product.Title @Model.ElementAt(0).Product.Model</span>
+    </h2>*@
+@*<ol class="commentlist">*@
+@foreach (var item in Model)
+{
+    <li class="conment">
+        <div class="conment-container">
+            <a href="productdetails-fullwidth.html#" class="avatar">
+                <img height="200" width="100" src="https://lamcdn.net/lookatme.ru/post_image-image/ANsoJegbW6iGK0A_sqOuUQ-wide.jpg" alt="img">
+            </a>
+
+            <div class="comment-text">
+                <div class="stars-rating">
+                    <div class="star-rating">
+                        <span class="star-@item.Raiting"></span>
+                    </div>
+                    <div class="count-star">
+                        (@item.Raiting)
+                    </div>
+                </div>
+
+                <p class="meta">
+                    <strong class="author">@item.Nick</strong>
+                    <span>-</span>
+                    <span class="time">@item.DateShort, @item.TimeShort</span>
+                </p>
+
+                <div class="description">
+                    <p>@item.Text</p>
+                    <div>
+                        <i class="fas fa-ellipsis-v fa-lg pop-up-menu" data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu" style="padding: 10px;">
+                            <li class="pencil"><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                            <li class="trash"><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="like-dislike">
+                    @{
+                        int.TryParse(item.Id, out int a);
+                        string like = (ViewBag.Likes as List<int>).Contains(a) ? "active-btn" : "";
+                        string dislike = (ViewBag.Dislikes as List<int>).Contains(a) ? "active-btn" : "";
+                    }
+                    <div class="commentId" hidden>@item.Id</div>
+
+                    <i class="fa fa-thumbs-up @like" style="margin-right:5px;"></i><span>@item.LikesTotal</span>
+                    <i class="fa fa-thumbs-down @dislike" style="margin-right:5px;margin-left:5px;"></i><span style="margin-right:20px">@item.DislikesTotal</span>
+                    <button type="button" class="btn btn-outline-danger btn-sm answer" id="answer">Answer</button>
+                    <div id="result" class="input-area"> </div>
+                    <div style="color:blue;" class="toggle-answers"><i class="fa fa-caret-down" style="margin-right:15px"></i><span class="toggle-word">Show </span>answers@*(@item.Answers.Count)*@</div>
+
+                </div>
+            </div>
+
+        </div>
+    </li>
+}
+@*</ol>*@
+@*</div>*@
+
+<script>
+        $(function () {
+
+            var commentToUpdate = {
+                Id:0,
+                Text:"",
+                oldElement:undefined
+            }
+            $(".trash").click(function () {
+                var commentBody = $(this).closest(".conment");
+                var toDel = {
+                    Id:$(this).closest(".conment").find(".commentId").text(),
+                    IsRemoved:true
+                }
+                $.post('@Url.ActionLink("UpdateComment", "Product")', { comment: JSON.stringify(toDel) }, function () {
+                   // data.isError == false?commentBody.html(""):alert(data.message);
+
+                }).done(function () { commentBody.html("");});
+
+            });
+            $(".pencil").click(function ()
+            {
+                var Id = $(this).closest(".conment").find("#commentId").text();
+                var Text = $(this).closest(".conment").find(".description p").text();
+                var oldElement = $(this).closest(".conment");
+                var commentId = $(this).closest(".conment").find(".commentId").text();
+                var element = $(this).closest(".conment");
+                var comment = {
+                Nick: element.find(".author").text(),
+                Time: element.find(".time").text(),
+                Text: element.find(".description p").text(),
+                }
+                sessionStorage.setItem("commentId" + commentId, JSON.stringify(comment));
+                var result = oldElement.load('@Url.Action("GetInputCommentPartial","Product")?commentId=' + commentId).addClass("just-added");
+                $(".conment").find("textarea").val(Text);
+
+
+            });
+
+
+
+    var like = {
+        UserId:undefined,
+        CommentId:undefined,
+        ProductId:undefined,
+        IsLikeRemoved:false,
+        IsLiked: false,
+        IsDataSent:false
+        }
+        var likeTotal = {
+            Id: 0,
+            LikesTotal:0,
+            DislikesTotal:0
+        }
+        var userId = "6cab4e64-cd04-4ba5-94d4-3c9b5ad2e78f";
+        $(".fa-thumbs-up").click(function () {
+            var likeNew = Object.create(like);
+            var likeTotalNew = Object.create(likeTotal);
+         var thisThumbDown = $(this).parent().find(".fa-thumbs-down");
+        if (thisThumbDown.hasClass("active-btn")) thisThumbDown.trigger("click");
+        $(this).toggleClass("active-btn");
+          var likes =  $(this).next("span").text().trim();
+            likes = parseInt(likes);
+            var commentId = $(this).parent().find("#commentId").text().trim();
+        likeNew.UserId = userId;
+            likeNew.CommentId = commentId;
+        likeNew.ProductId = $("#productId").text().trim();
+            likeNew.IsDataSent = false;
+            likeTotalNew.Id = commentId;
+            likeTotalNew.DislikesTotal = thisThumbDown.next("span").text().trim();
+            if ($(this).hasClass("active-btn")) {
+                likes++;
+                $(this).next("span").text(likes);
+                likeNew.IsLiked = true;
+                likeNew.IsLikeRemoved = false;
+                likeTotalNew.LikesTotal = likes;
+                setLikeState(likeNew);
+                setLikeTotal(likeTotalNew);
+            }
+            else {
+                likes--;
+                $(this).next("span").text(likes);
+                likeNew.IsLikeRemoved = true;
+                 likeTotalNew.LikesTotal = likes;
+                setLikeState(likeNew);
+                  setLikeTotal(likeTotalNew);
+        }
+    });
+
+    $(".fa-thumbs-down").click(function () {
+        var likeNew = Object.create(like);
+         var likeTotalNew = Object.create(likeTotal);
+        var thisThumbUp = $(this).parent().find(".fa-thumbs-up");
+        if (thisThumbUp.hasClass("active-btn")) thisThumbUp.trigger("click");
+        $(this).toggleClass("active-btn");
+        var dislikes =  $(this).next("span").text().trim();
+        dislikes = parseInt(dislikes);
+        var commentId=$(this).parent().find("#commentId").text().trim();
+        likeNew.UserId = userId;
+        likeNew.CommentId = commentId;
+        likeNew.ProductId = $("#productId").text().trim();
+        likeNew.IsDataSent = false;
+         likeTotalNew.Id = commentId;
+            likeTotalNew.LikesTotal = thisThumbUp.next("span").text().trim();
+            if ($(this).hasClass("active-btn")) {
+                dislikes++;
+                $(this).next("span").text(dislikes);
+                likeNew.IsLiked = false;
+                likeNew.IsLikeRemoved = false;
+                likeTotalNew.DislikesTotal = dislikes;
+                setLikeState(likeNew);
+                  setLikeTotal(likeTotalNew);
+            }
+            else {
+                dislikes--;
+                $(this).next("span").text(dislikes);
+                likeNew.IsLikeRemoved = true;
+                likeTotalNew.DislikesTotal = dislikes;
+                setLikeState(likeNew);
+                setLikeTotal(likeTotalNew);
+        }
+
+    });
+        function setLikeTotal(likeTotal) {
+              if (localStorage.getItem("likeTotal") === null) localStorage.setItem("likeTotal", JSON.stringify(new Array()));
+            var localStorageResult = JSON.parse(localStorage.getItem("likeTotal"));
+            for (var i = 0; i < localStorageResult.length; i++) {
+                if (localStorageResult[i]["Id"] == likeTotal.Id) {
+                    localStorageResult[i]["LikesTotal"] = likeTotal.LikesTotal;
+                    localStorageResult[i]["DislikesTotal"] = likeTotal.DislikesTotal;
+                    localStorage.setItem("likeTotal", JSON.stringify(localStorageResult));
+                    return;
+                }
+            }
+             localStorageResult.push(likeTotal);
+                 localStorage.setItem("likeTotal", JSON.stringify(localStorageResult));
+        }
+        function setLikeState(like) {
+             if (localStorage.getItem("like") === null) localStorage.setItem("like", JSON.stringify(new Array()));
+            var localStorageResult = JSON.parse(localStorage.getItem("like"));
+            for (var i = 0; i < localStorageResult.length; i++) {
+            if (localStorageResult[i]["CommentId"] == like.CommentId && like.IsLikeRemoved == true) {
+                localStorageResult[i]["IsLikeRemoved"] = true;
+                localStorageResult[i]["IsLiked"] = undefined;
+                localStorage.setItem("like",JSON.stringify(localStorageResult));
+                    return;
+                }
+            else if (localStorageResult[i]["CommentId"] == like.CommentId && like.IsLiked == false) {
+                localStorageResult[i]["IsLikeRemoved"] = false;
+                localStorageResult[i]["IsLiked"] = false;
+                localStorage.setItem("like",JSON.stringify(localStorageResult));
+                    return;
+                }
+             else  if (localStorageResult[i]["CommentId"] == like.CommentId && like.IsLiked == true) {
+                localStorageResult[i]["IsLikeRemoved"] = false;
+                localStorageResult[i]["IsLiked"] = true;
+                localStorage.setItem("like",JSON.stringify(localStorageResult));
+                    return;
+                }
+            }
+       localStorageResult.push(like);
+       localStorage.setItem("like", JSON.stringify(localStorageResult));
+        }
+        function synchronizeDataWithServer() {
+             if (localStorage.getItem("like") === null) return;
+            $.post('@Url.Action("UpdateLikes", "Product")', { localStorageResult: localStorage.getItem("like") }, function () {
+                localStorage.removeItem("like")
+            });
+            $.post('@Url.Action("UpdateLikesTotal", "Product")', { localStorageResult: localStorage.getItem("like") }, function () {
+                localStorage.removeItem("likeTotal")
+            });
+            }
+
+         setTimeout(synchronizeDataWithServer, 0);
+         setInterval(function () {
+             synchronizeDataWithServer();
+        },30000000);
+
+
+    $(".answer").click(function () {
+       $(this).closest('.like-dislike').find('.input-area').load('@Url.Action("GetInputCommentPartial","Product")');
+    });
+       $(".toggle-answers").click(function () {
+           var partId = $(this).closest(".like-dislike").find(".commentId").text();
+           var prodId=$("#productId").text().trim();
+           $(this).closest('.like-dislike').find('.input-area').load('@Url.Action("GetSubComments","Product")',
+               {parentId:partId,productId:prodId});
+        $(this).find("i").toggleClass("fa-caret-up");
+        if ($(this).find("i").attr("class") == "fa fa-caret-down") $(this).find(".toggle-word").text("Show ");
+        else $(this).find(".toggle-word").text("Hide ");
+
+    });
+
+        $(".comment-text").mouseover(function () {
+            $(this).find(".pop-up-menu").css("display", "block")
+        });
+        $(".comment-text").mouseout(function () { $(this).find(".pop-up-menu").css("display", "none") });
+
+        $(".pop-up-menu").click(function (e) {
+
+            $(this).next(".dropdown-menu").css("display", "block").
+                offset({ top: e.pageY + 20, left: e.pageX - 20 });
+
+        });
+         
+
+        });//
+
+</script>
+
+

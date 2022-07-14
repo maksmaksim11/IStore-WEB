@@ -1,0 +1,61 @@
+﻿@model List<IStore_WEB_.Models.ProductViewModel>
+<div class="content-wrap">
+    <h3 class="title">Shopping Cart</h3>
+    <ul class="minicart-items">
+        @foreach (var item in Model)
+        {
+            <li class="product-cart mini_cart_item">
+                <div style="display: none">
+                    <span class="partial-id">@item.Id</span>
+                    <span class="partial-model">@item.Model</span>
+                    <span class="partial-previewimage">@item.PreviewImage</span>
+                    <span class="partial-retailprice">@item.RetailPrice</span>
+                    <span class="partial-title">@item.Title</span>
+                </div>
+                <a href="@Url.Action("Product", "Product", new { id = item.Id })" class="product-media">
+                    <img src="@item.PreviewImage" alt="@item.Title">
+                </a>
+                <div class="product-details">
+                    <h5 class="product-name">
+                        <a href="@Url.Action("Product", "Product", new { id = item.Id })">@item.Title</a>
+                    </h5>
+                    <div class="variations">
+                        <span class="attribute_color">
+                            <a href="@Url.Action("Product", "Product", new { id = item.Id })">@item.Model</a>
+                        </span>
+                    </div>
+                    <span class="product-price">
+                        ₴
+                        <span class="price">
+                            @item.RetailPrice
+                        </span>
+                    </span>
+                    <span class="product-quantity">
+                        (x
+                        <span class="quantity">@item.Count</span>
+                        )
+                    </span>
+                    <div class="product-remove">
+                        <a href="javascript:;" onclick="deleteproductpartial(this)"><i class="fa fa-trash-o"></i></a>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <div class="subtotal">
+        <span class="total-title">Subtotal: </span>
+        <span class="total-price">
+            <span class="Price-amount">
+                0
+            </span>
+        </span>
+    </div>
+    <div class="actions">
+        <a class="button button-viewcart" href="@Url.Action("ShoppingCart", "Cart")">
+            <span>View Bag</span>
+        </a>
+        <a href="@Url.Action("Checkout", "Cart")" class="button button-checkout">
+            <span>Checkout</span>
+        </a>
+    </div>
+</div>

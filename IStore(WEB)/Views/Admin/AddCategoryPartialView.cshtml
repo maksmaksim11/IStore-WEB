@@ -1,0 +1,98 @@
+﻿@*@model Domain.EF_Models.Category*@
+
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>*@
+
+    <script>
+
+        $(function () {
+
+            
+            $(".categoryPreviewImage").change(function (e) {
+
+            var file = $(this)[0].files[0];
+            var reader = new FileReader();
+
+            if(this.files[0].size > 20000){ //12
+                    alert("File is too big!");
+                this.value = "";
+                e.preventDefault();
+                return;
+            };
+
+             if(this.files[0].type != "image/png"){
+                    alert("File format not supported! Required .png");
+                this.value = "";
+                e.preventDefault();
+                return;
+            };
+
+
+
+            reader.onload = function () {
+                $(".CayegoryPreviewImageView").attr("src", reader.result);               
+            };
+
+           
+           
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            else {
+                    preview.src = "";
+            };
+
+            });
+
+
+
+            $(".saveCategory").click(function () {
+                
+                var title = $(".categoryTitle").val();
+
+                var formData = new FormData();
+                formData.append('file', $('.categoryPreviewImage')[0].files[0]);
+                formData.append('category', title);
+
+                $.ajax({
+                type: "POST",
+                url: "/admin/SaveCategory",
+                data: formData,
+                processData: false, 
+                contentType: false,
+
+                    success: function (data) {
+
+                        $('.category').empty();
+
+                        $.each(data, function (index, value) {
+                             $('.category').append("<option>"+value+"</option>");
+                        });                     
+                    }
+                });
+
+                $(".categoryBox").hide();
+                $(".categoryTitle").val("");
+                $(".categoryPreviewImage").val("");
+                $(".CayegoryPreviewImageView").attr("src", "");    
+            });
+        });
+
+
+    </script>
+
+
+<div class="row">
+    <div class="col-md-4 categoryBox" style="display:none">
+
+        @Html.Label("Title")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "categoryTitle"} })
+
+        @Html.Label("Preview image")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "categoryPreviewImage", @type = "file", @accept = ".png" } })
+        <img class="CayegoryPreviewImageView" />
+
+        <button type="button" class="saveCategory">Save</button>        
+    </div>
+</div>
+

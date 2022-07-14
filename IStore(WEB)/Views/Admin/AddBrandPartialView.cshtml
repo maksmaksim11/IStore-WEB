@@ -1,0 +1,60 @@
+﻿
+    <script>
+
+        $(function () {
+
+            $(".saveBrand").click(function () {
+
+                var brand = new Object();
+
+               brand.Id = 0;
+               brand.Name = $(".brandTitle").val();
+               brand.Country = $(".brandCountry").val();
+               brand.Description = $(".brandDescription").val();
+
+                $.ajax({
+                type: "POST",
+                url: "/admin/SaveBrand",
+                data: brand,
+               
+                    success: function (data) {
+
+                        $('.brand').empty();
+
+                        $.each(data, function (index, value) {
+                             $('.brand').append("<option>"+value+"</option>");
+                        });
+                    }
+                });
+
+                $(".brandBox").hide();
+                $(".brandTitle").val("");
+                $(".brandCountry").val("");
+                $(".brandDescription").val("");
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4 brandBox" style="display:none">
+
+        @Html.Label("Title")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "brandTitle" } })
+
+        @Html.Label("Country")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "brandCountry" } })
+
+        @Html.Label("Description")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "brandDescription" } })
+
+
+
+        <button type="button" class="saveBrand">Save</button>
+    </div>
+</div>

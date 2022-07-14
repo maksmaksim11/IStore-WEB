@@ -1,0 +1,23 @@
+﻿@model List<IStore_WEB_.Models.ProductViewModel>
+@foreach (var item in Model)
+{
+    <li class="product-item-order">
+        <div class="product-thumb">
+            <a href="@Url.Action("Product", "Product", new { id = item.Id })">
+                <img src="@item.PreviewImage" alt="@item.Title">
+            </a>
+        </div>
+        <div class="product-order-inner">
+            <h5 class="product-name">
+                <a href="@Url.Action("Product", "Product", new { id = item.Id })">@item.Title</a>
+            </h5>
+            <span class="attributes-select attributes-color">@item.Model</span>
+            <div class="price">
+                $
+                <span class="checkout-price">@item.RetailPrice</span>
+                x
+                <span class="count">@item.Count</span>
+            </div>
+        </div>
+    </li>
+}

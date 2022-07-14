@@ -1,0 +1,160 @@
+﻿
+@{
+    
+    Layout = "~/Views/Shared/AdminPanel/AdminLayout.cshtml";
+}
+
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="~/AdminPanel/css/AddProduct.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/AdminPanel/js/AddProduct.js"></script>
+
+
+<h4>New product</h4>
+<hr />
+<div class="allelements">
+
+    <div class="box">
+        <div class="box1">
+
+            @Html.Label("Title")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "title" } })
+            @Html.Label("Type")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "type" } })
+            @Html.Label("Model")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "model" } })
+
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box1">
+            @Html.Label("VendorCode")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "vendorCode" } })
+            @Html.Label("Description")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "description" } })
+            
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="box1">
+
+            <div class="block">
+
+                @Html.Label("Category")
+                @Html.DropDownList("Categories",
+                         new SelectList(ViewBag.Categories),
+                         new { @class = "category" })
+
+                <button class="newCategory">New category</button>
+
+                <div class="categoryBox">
+                    <div>
+                        @await Html.PartialAsync("AddCategoryPartialView")
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="box2" style="margin-left:150px;">
+
+            <div class="block">
+
+                @Html.Label("Brand")
+                @Html.DropDownList("Brands",
+                         new SelectList(ViewBag.Brands),
+                         new { @class = "brand" })
+
+                <button class="newBrand">New brand</button>
+
+                <div class="brandBox">
+                    <div>
+                        @await Html.PartialAsync("AddBrandPartialView")
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box">
+        <div class="box2">
+
+            @Html.Label("RetailPrice")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "retailPrice", @type = "number" } })
+            @Html.Label("Series")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "series" } })
+            @Html.Label("Count in storage")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "countInStorage", @type = "number" } })
+
+        </div>
+
+    </div>
+
+    <div class="box">
+        <div class="box2">
+
+            @Html.Label("Rating")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "rating", @type = "number" } })
+            @Html.Label("Warranty month")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "warrantyMonth", @type = "number" } })
+        </div>
+
+    </div>
+
+    <div class="box">
+
+        <div class="box1">
+
+            @Html.Label("Preview image")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "previewImage", @type = "file", @accept = ".png" } })
+            <img class="previewImageView" />
+            <br>
+            @Html.Label("Images")
+            @await Html.PartialAsync("ImagePartialView")
+
+        </div>
+
+    </div>
+
+    <div class="box">
+
+        <div class="box2">
+
+            @Html.Label("Сount in package")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "countInPackage", @type = "number" } })
+            @Html.Label("Packing volume")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "volume", @type = "number" } })
+            @Html.Label("Packing weight")
+            @Html.Editor("editor", new { htmlAttributes = new { @class = "weight", @type = "number" } })
+
+        </div>
+
+    </div>
+
+
+    <div class="box">
+        <div class="box1">
+
+            @await Html.PartialAsync("ProductCharacteristicPartialView")
+
+        </div>
+
+    </div>
+</div>
+
+    <div class="box">
+        <div class="box1">
+            <button class="saveProduct">Save</button>
+        </div>
+
+    </div>
+
+

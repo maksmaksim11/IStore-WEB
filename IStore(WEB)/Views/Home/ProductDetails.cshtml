@@ -1,0 +1,103 @@
+﻿@model Domain.EF_Models.Product
+
+<div class="kt-popup-quickview ">
+    <div style="display:none">
+        <span class="product-id">@Model.Id</span>
+        <span class="product-model">@Model.Model</span>
+        <span class="product-previewimage">@Model.PreviewImage</span>
+        <span class="product-retailprice">@Model.RetailPrice</span>
+    </div>
+    <div class="details-thumb">
+        <div class="slider-product slider-for">
+            <div class="details-item">
+                <img src="@Model.PreviewImage" alt="img">
+            </div>
+            @foreach (var item in @Model.Images)
+            {
+                <div class="details-item">
+                    <img src="@item.FilePath" alt="img">
+                </div>
+            }
+        </div>
+        <div class="slider-product-button slider-nav nav-center">
+            <div class="details-item">
+                <img src="@Model.PreviewImage" alt="img">
+            </div>
+            @foreach (var item in Model.Images)
+            {
+                <div class="details-item">
+                    <img src="@item.FilePath" alt="img">
+                </div>
+            }
+        </div>
+    </div>
+    <div class="details-infor">
+        <h1 class="product-title">@Model.Title</h1>
+        <div class="stars-rating">
+            <div class="star-rating">
+                <span class="star-5"></span>
+            </div>
+            <div class="count-star">(@Model.Rating)</div>
+        </div>
+        <div class="availability">
+            availability:
+            @if (Model.CountInStorage > 0)
+            {
+                <a href="#">in Stock</a>
+            }
+            else
+            {
+                <a href="#">not Available</a>
+            }
+        </div>
+        <div class="price"><span>€@Model.RetailPrice</span></div>
+        <div class="product-details-description">
+            <ul>
+                <li>@Model.Description</li>
+                <li>@Model.Category.Title</li>
+                <li>@Model.Brand.Name</li>
+                <li>@Model.Model</li>
+                <li>@Model.VendorCode</li>
+            </ul>
+        </div>
+        <div class="variations">
+            @foreach (var item in Model.ProductCharacteristics)
+            {
+                <div class="attribute">
+                    <div class="characteristics">
+                        <div>@item.Title : @item.Value</div>
+                    </div>
+                </div>
+            }
+                @*<div class="attribute attribute_color">
+                <div class="color-text text-attribute">Color:<span>White/</span><span>Black/</span><span>Teal/</span><span>Brown</span></div>
+                <div class="list-color list-item"><a href="#" class="color1"></a><a href="#" class="color2"></a><a href="#" class="color3 active"></a><a href="#" class="color4"></a></div>
+            </div>
+            <div class="attribute attribute_size"><div class="size-text text-attribute">Size:</div><div class="list-size list-item"><a href="#" class="">xs</a><a href="#" class="">s</a><a href="#" class="active">m</a><a href="#" class="">l</a><a href="#" class="">xl</a><a href="#" class="">xxl</a></div></div>*@
+            </div>
+        <div class="group-button">
+            @*<div class="yith-wcwl-add-to-wishlist">
+                <div class="yith-wcwl-add-button">
+                    <a href="#">Add to Wishlist</a>
+                </div>
+            </div>
+            <div class="size-chart-wrapp">
+                <div class="btn-size-chart">
+                    <a id="size_chart" href="assets/images/size-chart.jpg" class="fancybox" target="_blank">View Size Chart</a>
+                </div>
+            </div>*@
+            <p>
+                <div class="quantity-add-to-cart">
+                    <div class="quantity">
+                        <div class="control">
+                            <a class="btn-number qtyminus quantity-minus" href="#">-</a>
+                            <input type="text" data-step="1" data-min="1" value="1" title="Qty" class="input-qty qty" size="4">
+                            <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+                        </div>
+                    </div>
+                    <button class="single_add_to_cart_button button" onclick="addToCartPopup(this)">Add to cart</button>
+                </div>
+            </p>
+        </div>
+    </div>
+</div>

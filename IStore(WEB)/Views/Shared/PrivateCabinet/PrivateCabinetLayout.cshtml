@@ -1,0 +1,173 @@
+﻿
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>My cabinet</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/AdminPanel/img/core-img/favicon.png">
+    <script src="https://kit.fontawesome.com/4c09a507f0.js" crossorigin="anonymous"></script>
+    <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+    <link rel="stylesheet" href="~/AdminPanel/style/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="hasro-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="ecaps-page-wrapper">
+        <!-- Sidemenu Area -->
+        <div class="ecaps-sidemenu-area">
+            <!-- Desktop Logo -->
+            <div class="ecaps-logo">
+                <a href="javascript:;"><img class="desktop-logo" src="~/AdminPanel/img/core-img/logo.png" alt="Desktop Logo"> <img class="small-logo" src="~/AdminPanel/img/core-img/small-logo.png" alt="Mobile Logo"></a>
+            </div>
+
+            <!-- Side Nav -->
+            <div class="ecaps-sidenav" id="ecapsSideNav">
+                <!-- Side Menu Area -->
+                <div class="side-menu-area">
+                    <!-- Sidebar Menu -->
+                    <nav>
+                        <ul class="sidebar-menu" data-widget="tree">
+
+                            <li><a href=""><i class='bx bxs-cart'></i><span>My orders</span></a></li>
+
+                            <li class="treeview active">
+                                <a href="javascript:void(0)"><i class="bx bxs-cart"></i> <span>Orders</span> <i class="fas fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="">Orders</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="treeview active">
+                                <a href="javascript:void(0)"><i class="bx bxs-cart"></i> <span>My info</span> <i class="fas fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="">My info</a></li>
+                                    
+                                </ul>
+                            </li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="ecaps-page-content">
+            <!-- Top Header Area -->
+            <header class="top-header-area d-flex align-items-center justify-content-between">
+                <div class="left-side-content-area d-flex align-items-center">
+                    <!-- Mobile Logo -->
+                    <div class="mobile-logo mr-3 mr-sm-4">
+                        <a href="https://demo.riktheme.com/litam/side-menu/index.html"><img src="~/AdminPanel/img/core-img/small-logo.png" alt="Mobile Logo"></a>
+                    </div>
+
+                    <!-- Triggers -->
+                    <div class="ecaps-triggers mr-1 mr-sm-3">
+                        <div class="menu-collasped" id="menuCollasped">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                        <div class="mobile-menu-open" id="mobileMenuOpen">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                    </div>
+
+                    <!-- Left Side Nav -->
+                    <ul class="left-side-navbar d-flex align-items-center">
+                        <li class="hide-phone app-search">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="bx bx-search-alt"></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-side-navbar d-flex align-items-center justify-content-end">
+                    <!-- Mobile Trigger -->
+                    <div class="right-side-trigger" id="rightSideTrigger">
+                        <i class='bx bx-menu-alt-right'></i>
+                    </div>
+
+                    <!-- Top Bar Nav -->                    
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-30">
+                                <div class="card-body">
+
+                                    
+                                    <div class="container">
+                                        <main role="main" class="pb-3">
+                                            @RenderBody()
+                                        </main>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Footer Area -->
+                            <footer class="footer-area d-flex align-items-center flex-wrap">
+                                <!-- Copywrite Text -->
+                                <div class="copywrite-text">
+                                    <p>Created by <a href="e-add-product.html#">Theme-zome</a></p>
+                                </div>
+                                <!-- Footer Nav -->
+                                <ul class="footer-nav d-flex align-items-center">
+                                    <li><a href="e-add-product.html#">About</a></li>
+                                    <li><a href="e-add-product.html#">Privacy</a></li>
+                                    <li><a href="e-add-product.html#">Purchase</a></li>
+                                </ul>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+    <!-- Must needed plugins to the run this Template -->
+    <script src="~/AdminPanel/js/jquery.min.js"></script>
+    <script src="~/AdminPanel/js/popper.min.js"></script>
+    <script src="~/AdminPanel/js/bootstrap.min.js"></script>
+    <script src="~/AdminPanel/js/bundle.js"></script>
+    <script src="~/AdminPanel/js/default-assets/setting.js"></script>
+    <script src="~/AdminPanel/js/default-assets/fullscreen.js"></script>
+
+    <!-- Active JS -->
+    <script src="~/AdminPanel/js/default-assets/active.js"></script>
+
+</body>
+
+</html>

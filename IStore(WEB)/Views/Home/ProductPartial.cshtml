@@ -1,0 +1,79 @@
+﻿@model Domain.EF_Models.Product
+
+
+<script src="https://kit.fontawesome.com/4c09a507f0.js" crossorigin="anonymous"></script>
+
+
+<li class="product-item  col-lg-3 col-md-4 col-sm-6 col-xs-6 col-ts-12 style-1">
+    <div class="product-inner equal-element" style="height: 373px;">
+        <div class="product-top">
+            <div class="flash">
+                <span class="onnew">
+                    <span class="text">
+                        new
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="product-thumb">
+            <div style="display:none">
+<span class="product-id">@Model.Id</span>
+<span class="product-description">@Model.Description</span>
+<span class="product-model">@Model.Model</span>
+<span class="product-previewimage">@Model.PreviewImage</span>
+<span class="product-rating">@Model.Rating</span>
+<span class="product-retailprice">@Model.RetailPrice</span>
+<span class="product-series">@Model.Series</span>
+<span class="product-title">@Model.Title</span>
+<span class="product-type">@Model.Type</span>
+<span class="product-vendorcode">@Model.VendorCode</span>
+<span class="product-warrantymonth">@Model.WarrantyMonth</span>
+                </div>
+<div class="thumb-inner">
+    <a href="@Url.Action("Product", "Product", new { id = Model.Id })">
+        <img src=@Model.PreviewImage alt="img">
+    </a>
+    <div class="thumb-group">
+        <div class="yith-wcwl-add-to-wishlist">
+            <div class="yith-wcwl-add-button">
+                <a href="index.html#">Add to Wishlist</a>
+            </div>
+        </div>
+        <a class="button quick-wiew-button">Quick View</a>
+        <div class="loop-form-add-to-cart">
+            <button class="single_add_to_cart_button button product_to_cart">
+                Add to cart
+            </button>
+        </div>
+    </div>
+</div>
+            </div>
+<div class="product-info">
+    <h5 class="product-name product_title">
+        <a href="index.html#">@Model.Title</a>
+        <a href="index.html#">@Model.Model</a>
+    </h5>
+    <div class="group-info">
+        <div class="stars-rating">
+            <div class="star-rating">
+                <span class="star-3">
+
+                        </span>
+                    </div>
+                    <div class="count-star">
+                        (3)
+                    </div>
+                </div>
+                <div class="price">
+                    <del>
+                        @(String.Format("{0: 0,0}", (Model.RetailPrice * 1.15)))
+                    </del>
+                    <ins>
+                        @(String.Format("{0: 0,0}", Model.RetailPrice))
+
+                    </ins>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

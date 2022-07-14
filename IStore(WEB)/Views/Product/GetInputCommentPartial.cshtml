@@ -1,0 +1,158 @@
+﻿
+<style>
+    .text-area {
+        resize: vertical;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 2px solid grey;
+        height: 50px;
+        overflow: hidden;
+    }
+</style> 
+<div class="review_form">
+    <div class="commentId" hidden>@ViewBag.CommentId</div>
+    <div class="comment-respond">
+        <form class="comment-form-review">
+            <div class="comment-form-comment">
+                <textarea class="text-area" placeholder="your comment..."></textarea>
+            </div>
+            <div class="form-submit" style="display:flex;flex-direction:row;justify-content:space-between">
+                <div class="star-sel"></div>
+                <div>
+                    <button type="button" class="btn btn-outline-danger btn-sm cancel" id="cancel-partial">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-sm send-comment">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+            $.fn.stars = function(options) {
+
+        var settings = $.extend({
+            stars: 5,
+            emptyIcon: 'fa-star-o',
+            filledIcon: 'fa-star',
+            color: '#E4AD22',
+            starClass: '',
+            value: 0,
+            text: null,
+            click: function() {}
+        }, options);
+
+        var block = this;
+
+        for (var x = 0; x < settings.stars; x++) {
+            var icon = $("<i>").addClass("fa").addClass(settings.emptyIcon).addClass(settings.starClass);
+
+            if (settings.text) {
+                icon.attr("data-rating-text", settings.text[x]);
+            }
+
+            if (settings.color !== "none") {
+                icon.css("color", settings.color)
+            }
+
+            this.append(icon);
+        }
+
+        if (settings.text) {
+            var textDiv = $("<div>").addClass("rating-text");
+            this.append(textDiv);
+        }
+
+             var stars = this.find("i");
+             
+        stars.on("mouseover", function() {
+            var index = $(this).index() + 1;
+            var starsHovered = stars.slice(0, index);
+            events.removeFilledStars(stars, settings);
+            events.fillStars(starsHovered, settings);
+
+            if (settings.text) block.find(".rating-text").html($(this).data("rating-text"));
+        }).on("mouseout", function() {
+            events.removeFilledStars(stars, settings);
+            events.fillStars(stars.filter(".selected"), settings);
+            if (settings.text) block.find(".rating-text").html("");
+        }).on("click", function() {
+            var index = $(this).index();
+            settings.value = index + 1;
+            stars.removeClass("selected").slice(0, settings.value).addClass("selected");
+            settings.click.call(stars.get(index), settings.value);
+        });
+
+        events = {
+            removeFilledStars: function(stars, s) {
+                stars.removeClass(s.filledIcon).addClass(s.emptyIcon);
+                return stars;
+            },
+
+            fillStars: function(stars, s) {
+                stars.removeClass(s.emptyIcon).addClass(s.filledIcon);
+                return stars;
+            }
+        };
+
+        if (settings.value > 0) {
+            var starsToSelect = stars.slice(0, settings.value);
+            events.fillStars(starsToSelect, settings).addClass("selected");
+        }
+
+        return this;
+    };
+        var starsSelected;
+          $(".star-sel").stars({
+            text: ["Bad", "Not so bad", "hmmm", "Good", "Perfect"], stars: 5, click: function (i) {
+                  starsSelected = i;
+            }
+          });
+
+
+    $(".cancel").click(function () {
+        $(this).closest('.input-area').html(" ");
+        
+    });
+    $(".send-comment").click(function () {
+        var userId = "6cab4e64-cd04-4ba5-94d4-3c9b5ad2e78f";
+            var comment = {
+                ProductId: $("#productId").text().trim(),
+                ParentId:$(this).closest(".comment-text").find(".commentId").text(),
+                UserId: userId,
+                Text: $(this).closest(".comment-form-review").find("textarea").val().trim(),
+                Raiting: starsSelected,
+        }
+        if ($(this).closest(".conment").hasClass("just-added")) {
+            comment.Id = $(this).closest(".review_form").find(".commentId").text();
+            var head = $(this).closest(".conment");  
+            head.load('@Url.ActionLink("UpdateComment", "Product")', { comment: JSON.stringify(comment) });
+                return;
+        }
+        else {
+          var com = $(".conment").clone();
+          var el= $(".commentlist").append("<li class='conment'> </li>");
+          el.find(".conment").last().load('@Url.ActionLink("AddComment", "Product")', { comment: JSON.stringify(comment) });
+        }
+     
+    });
+    function editHandler(comment) {
+      
+    }
+    function arrangeComments(data) {
+          var com = $(".conment").clone();
+                com.html("<li class='conment'>" + com.html() + "</li>");
+                //  com.find(".star-rating > span").removeClass().addClass("star-" + starsSelected);
+                com.find(".author").text(data.nick);
+                com.find(".time").text(data.dateShort+" "+data.timeShort);
+                com.find(".description p").text(data.text);
+                com.find(".fa-thumbs-up").removeClass().addClass("fa fa-thumbs-up").next().text("0");
+                //  com.find(".fa-thumbs-up").on("html", $(this), Fun)
+                com.find(".fa-thumbs-down").removeClass().addClass("fa fa-thumbs-down").next().text("0");
+                $(".commentlist").append(com.html());
+    }
+
+
+      
+</script>
+

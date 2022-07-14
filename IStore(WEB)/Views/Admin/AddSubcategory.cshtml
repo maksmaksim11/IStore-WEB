@@ -1,0 +1,156 @@
+﻿@model Domain.EF_Models.Category
+
+@{
+    ViewData["Title"] = "AddSubcategory";
+    Layout = "~/Views/Shared/AdminPanel/AdminLayout.cshtml";
+}
+
+<h4>Add subcategory</h4>
+<hr />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+$(function () {
+    $(".previewImage").change(function (e) {
+
+        var file = $(this)[0].files[0];
+        var reader = new FileReader();
+
+        if (this.files[0].size > 20000) { //12
+            alert("File is too big!");
+            this.value = "";
+            e.preventDefault();
+            return;
+        };
+
+        if (this.files[0].type != "image/png") {
+            alert("File format not supported! Required .png");
+            this.value = "";
+            e.preventDefault();
+            return;
+        };
+
+        reader.onload = function () {
+            $(".previewImageView").attr("src", reader.result);
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+        else {
+            preview.src = "";
+        };
+
+    });
+
+
+    $(".saveBtn").click(function () {
+
+        var formData = new FormData();
+        formData.append('file', $('.previewImage')[0].files[0]);
+
+        var main = $(".category").val();
+        var title = $(".title").val();
+
+
+        formData.append('mainCategory', main);
+        formData.append('title', title);
+
+        $.ajax({
+            type: "POST",
+            url: "/admin/SaveSubcategory",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data);
+            }
+        });
+    });
+});
+
+</script>
+
+<style>
+
+    .allelements {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        flex-direction:column;
+    }
+
+    .box {
+        display: flex;
+        align-items:center;
+        align-self: flex-start;
+        justify-content: center;
+        flex-direction: row;
+        margin:20px;
+    }
+
+    input[type=file],  input[type=text]{
+        border: 0.5px solid darkgray;
+        border-radius: 5px;
+        margin-left: 20px;
+        font-size: small;
+    }
+
+    .category{
+        margin-left: 20px;
+    }
+
+    button{
+        width:70px;
+    }
+
+    img{
+       max-width: 100px;
+        max-height: 100px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-right: 50px;
+    }
+
+</style>
+
+<div class="allelements">
+
+    <div class="box">
+        @Html.Label("Main category")
+        @Html.DropDownList("Categories",
+                         new SelectList(ViewBag.Categories),
+                         new { @class = "category" })
+
+    </div>
+
+    <div class="box">
+        @Html.Label("Title")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "title" } })
+
+    </div>
+
+    <div class="box">
+
+        @Html.Label("Preview image")
+        @Html.Editor("editor", new { htmlAttributes = new { @class = "previewImage", @type = "file", @accept = ".png" } })
+        <img class="previewImageView" />
+    </div>
+
+    <div class="box">
+
+        <button type="button" class="saveBtn">Save</button>
+    </div>
+
+</div>
+
+
+
+    @*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+    @*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

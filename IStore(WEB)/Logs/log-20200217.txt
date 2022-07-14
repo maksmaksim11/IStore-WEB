@@ -1,0 +1,365 @@
+2020-02-17 20:47:11.418 +02:00 [Debug] Hosting starting
+2020-02-17 20:47:13.898 +02:00 [Information] User profile is available. Using '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-17 20:47:14.002 +02:00 [Debug] Repository contains no viable default key. Caller should generate a key with immediate activation.
+2020-02-17 20:47:14.003 +02:00 [Debug] Policy resolution states that a new key should be added to the key ring.
+2020-02-17 20:47:14.015 +02:00 [Information] Creating key {6ab06759-f620-4010-8e1b-306d8b3d3f90} with creation date 2020-02-17 18:47:14Z, activation date 2020-02-17 18:47:13Z, and expiration date 2020-05-17 18:47:13Z.
+2020-02-17 20:47:14.621 +02:00 [Debug] Descriptor deserializer type for key {6ab06759-f620-4010-8e1b-306d8b3d3f90} is '"Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60"'.
+2020-02-17 20:47:15.263 +02:00 [Debug] No key escrow sink found. Not writing key {6ab06759-f620-4010-8e1b-306d8b3d3f90} to escrow.
+2020-02-17 20:47:15.650 +02:00 [Debug] Encrypting to Windows DPAPI for current user account ("ITSTEP1\sivorka").
+2020-02-17 20:47:15.667 +02:00 [Information] Writing data to file '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys\key-6ab06759-f620-4010-8e1b-306d8b3d3f90.xml"'.
+2020-02-17 20:47:15.672 +02:00 [Debug] Key cache expiration token triggered by '"CreateNewKey"' operation.
+2020-02-17 20:47:15.675 +02:00 [Debug] Reading data from file '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys\key-6ab06759-f620-4010-8e1b-306d8b3d3f90.xml"'.
+2020-02-17 20:47:15.768 +02:00 [Debug] Found key {6ab06759-f620-4010-8e1b-306d8b3d3f90}.
+2020-02-17 20:47:15.778 +02:00 [Debug] Considering key {6ab06759-f620-4010-8e1b-306d8b3d3f90} with expiration date 2020-05-17 18:47:13Z as default key.
+2020-02-17 20:47:15.893 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:47:15.894 +02:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-02-17 20:47:15.897 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:47:15.903 +02:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-02-17 20:47:15.907 +02:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-02-17 20:47:15.918 +02:00 [Debug] Using key {6ab06759-f620-4010-8e1b-306d8b3d3f90} as the default key.
+2020-02-17 20:47:15.921 +02:00 [Debug] Key ring with default key {6ab06759-f620-4010-8e1b-306d8b3d3f90} was loaded during application startup.
+2020-02-17 20:47:17.526 +02:00 [Debug] Loaded hosting startup assembly "IStore(WEB)"
+2020-02-17 20:47:17.527 +02:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-02-17 20:47:17.547 +02:00 [Information] Hosting environment: "Development"
+2020-02-17 20:47:17.547 +02:00 [Information] Content root path: "C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)"
+2020-02-17 20:47:17.547 +02:00 [Debug] Hosting started
+2020-02-17 20:47:17.938 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/  
+2020-02-17 20:47:17.941 +02:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-02-17 20:47:17.944 +02:00 [Debug] The request path "/" does not match a supported file type
+2020-02-17 20:47:17.980 +02:00 [Debug] 1 candidate(s) found for the request path '"/"'
+2020-02-17 20:47:17.996 +02:00 [Debug] Endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"' with route pattern '"{controller=Home}/{action=Index}/{id?}"' is valid for the request path '"/"'
+2020-02-17 20:47:17.999 +02:00 [Debug] Request matched endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:47:18.005 +02:00 [Information] Executing endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:47:18.031 +02:00 [Debug] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-02-17 20:47:18.236 +02:00 [Information] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)").
+2020-02-17 20:47:18.237 +02:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-02-17 20:47:18.238 +02:00 [Debug] Execution plan of "resource" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:47:18.238 +02:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)", "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2020-02-17 20:47:18.238 +02:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-02-17 20:47:18.239 +02:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:47:18.242 +02:00 [Debug] Executing controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:47:18.710 +02:00 [Debug] An 'IServiceProvider' was created for internal use by Entity Framework.
+2020-02-17 20:47:18.817 +02:00 [Debug] Executed controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:47:19.042 +02:00 [Information] Executing action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" - Validation state: Valid
+2020-02-17 20:49:01.251 +02:00 [Debug] Hosting starting
+2020-02-17 20:49:01.556 +02:00 [Information] User profile is available. Using '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-17 20:49:01.688 +02:00 [Debug] Reading data from file '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys\key-6ab06759-f620-4010-8e1b-306d8b3d3f90.xml"'.
+2020-02-17 20:49:01.744 +02:00 [Debug] Found key {6ab06759-f620-4010-8e1b-306d8b3d3f90}.
+2020-02-17 20:49:01.782 +02:00 [Debug] Considering key {6ab06759-f620-4010-8e1b-306d8b3d3f90} with expiration date 2020-05-17 18:47:13Z as default key.
+2020-02-17 20:49:01.916 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:49:01.924 +02:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-02-17 20:49:01.926 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:49:01.943 +02:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-02-17 20:49:01.947 +02:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-02-17 20:49:01.955 +02:00 [Debug] Using key {6ab06759-f620-4010-8e1b-306d8b3d3f90} as the default key.
+2020-02-17 20:49:01.956 +02:00 [Debug] Key ring with default key {6ab06759-f620-4010-8e1b-306d8b3d3f90} was loaded during application startup.
+2020-02-17 20:49:02.333 +02:00 [Debug] Loaded hosting startup assembly "IStore(WEB)"
+2020-02-17 20:49:02.333 +02:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-02-17 20:49:02.333 +02:00 [Information] Hosting environment: "Development"
+2020-02-17 20:49:02.333 +02:00 [Information] Content root path: "C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)"
+2020-02-17 20:49:02.334 +02:00 [Debug] Hosting started
+2020-02-17 20:49:02.416 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/  
+2020-02-17 20:49:02.421 +02:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-02-17 20:49:02.423 +02:00 [Debug] The request path "/" does not match a supported file type
+2020-02-17 20:49:02.450 +02:00 [Debug] 1 candidate(s) found for the request path '"/"'
+2020-02-17 20:49:02.461 +02:00 [Debug] Endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"' with route pattern '"{controller=Home}/{action=Index}/{id?}"' is valid for the request path '"/"'
+2020-02-17 20:49:02.465 +02:00 [Debug] Request matched endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:49:02.476 +02:00 [Information] Executing endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:49:02.495 +02:00 [Debug] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-02-17 20:49:02.586 +02:00 [Information] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)").
+2020-02-17 20:49:02.590 +02:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-02-17 20:49:02.591 +02:00 [Debug] Execution plan of "resource" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:49:02.591 +02:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)", "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2020-02-17 20:49:02.591 +02:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-02-17 20:49:02.591 +02:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:49:02.593 +02:00 [Debug] Executing controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:49:02.846 +02:00 [Debug] An 'IServiceProvider' was created for internal use by Entity Framework.
+2020-02-17 20:49:02.883 +02:00 [Debug] Executed controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:49:02.987 +02:00 [Information] Executing action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" - Validation state: Valid
+2020-02-17 20:49:04.342 +02:00 [Information] Entity Framework Core "3.1.1" initialized '"StoreContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2020-02-17 20:49:04.438 +02:00 [Debug] '"StoreContext"' generated a temporary value for the '"Id"' property of new '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:49:04.553 +02:00 [Debug] Context '"StoreContext"' started tracking '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:49:04.565 +02:00 [Debug] SaveChanges starting for '"StoreContext"'.
+2020-02-17 20:49:04.569 +02:00 [Debug] DetectChanges starting for '"StoreContext"'.
+2020-02-17 20:49:04.592 +02:00 [Debug] DetectChanges completed for '"StoreContext"'.
+2020-02-17 20:49:05.036 +02:00 [Debug] Opening connection to database '"Lesson"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:49:05.187 +02:00 [Information] Executed action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2175.8907ms.
+2020-02-17 20:49:05.236 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Home/Index.cshtml"'.
+2020-02-17 20:49:05.236 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Home/Privacy.cshtml"'.
+2020-02-17 20:49:05.236 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/Error.cshtml"'.
+2020-02-17 20:49:05.236 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/_Layout.cshtml"'.
+2020-02-17 20:49:05.236 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/_ValidationScriptsPartial.cshtml"'.
+2020-02-17 20:49:05.237 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/_ViewImports.cshtml"'.
+2020-02-17 20:49:05.237 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/_ViewStart.cshtml"'.
+2020-02-17 20:49:05.270 +02:00 [Debug] View lookup cache miss for view '"Index"' in controller '"Home"'.
+2020-02-17 20:49:05.281 +02:00 [Information] Executing ViewResult, running view "Index".
+2020-02-17 20:49:05.288 +02:00 [Debug] The view path '"/Views/Home/Index.cshtml"' was found in 12.3473ms.
+2020-02-17 20:49:05.543 +02:00 [Debug] View lookup cache miss for view '"_Layout"' in controller '"Home"'.
+2020-02-17 20:49:05.650 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:49:05.669 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:49:05.748 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:49:05.752 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:49:05.753 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:49:05.753 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:49:05.755 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:49:05.756 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:49:05.756 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:49:05.759 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:49:05.759 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:49:05.759 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:49:05.868 +02:00 [Information] Executed ViewResult - view "Index" executed in 599.0967ms.
+2020-02-17 20:49:05.896 +02:00 [Information] Executed action "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" in 3279.0085ms
+2020-02-17 20:49:05.931 +02:00 [Information] Executed endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:49:05.937 +02:00 [Debug] '"StoreContext"' disposed.
+2020-02-17 20:49:06.016 +02:00 [Information] Request finished in 3606.0801ms 200 text/html; charset=utf-8
+2020-02-17 20:49:06.017 +02:00 [Error] An error occurred using the connection to database '"Lesson"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:49:06.526 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/lib/bootstrap/dist/css/bootstrap.min.css  
+2020-02-17 20:49:06.571 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/css/site.css  
+2020-02-17 20:49:06.607 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+2020-02-17 20:49:06.621 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/js/site.js?v=qJ6sF6fAQn4m-8y39hiFs0CzFE8ldTJ8vZrFRoBAU5U  
+2020-02-17 20:49:06.624 +02:00 [Information] Sending file. Request path: '"/js/site.js"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\js\site.js"'
+2020-02-17 20:49:06.624 +02:00 [Information] Sending file. Request path: '"/css/site.css"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\css\site.css"'
+2020-02-17 20:49:06.624 +02:00 [Information] Request finished in 4.9803ms 200 application/javascript
+2020-02-17 20:49:06.624 +02:00 [Information] Request finished in 52.884ms 200 text/css
+2020-02-17 20:49:06.626 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/lib/jquery/dist/jquery.min.js  
+2020-02-17 20:49:06.659 +02:00 [Information] Sending file. Request path: '"/lib/jquery/dist/jquery.min.js"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\lib\jquery\dist\jquery.min.js"'
+2020-02-17 20:49:06.660 +02:00 [Information] Request finished in 34.3043ms 200 application/javascript
+2020-02-17 20:49:06.680 +02:00 [Information] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.min.css"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css"'
+2020-02-17 20:49:06.681 +02:00 [Information] Request finished in 154.6903ms 200 text/css
+2020-02-17 20:49:06.686 +02:00 [Information] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.bundle.min.js"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js"'
+2020-02-17 20:49:06.687 +02:00 [Information] Request finished in 79.4943ms 200 application/javascript
+2020-02-17 20:49:07.038 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/favicon.ico  
+2020-02-17 20:49:07.189 +02:00 [Information] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)\wwwroot\favicon.ico"'
+2020-02-17 20:49:07.190 +02:00 [Information] Request finished in 153.6079ms 200 image/x-icon
+2020-02-17 20:50:07.716 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/home/index  
+2020-02-17 20:50:07.716 +02:00 [Debug] The request path "/home/index" does not match a supported file type
+2020-02-17 20:50:07.768 +02:00 [Debug] 1 candidate(s) found for the request path '"/home/index"'
+2020-02-17 20:50:07.769 +02:00 [Debug] Endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"' with route pattern '"{controller=Home}/{action=Index}/{id?}"' is valid for the request path '"/home/index"'
+2020-02-17 20:50:07.769 +02:00 [Debug] Request matched endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:50:07.770 +02:00 [Information] Executing endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:50:07.770 +02:00 [Information] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)").
+2020-02-17 20:50:07.770 +02:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-02-17 20:50:07.770 +02:00 [Debug] Execution plan of "resource" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:50:07.771 +02:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)", "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2020-02-17 20:50:07.771 +02:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-02-17 20:50:07.771 +02:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:50:07.771 +02:00 [Debug] Executing controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:50:07.773 +02:00 [Debug] Executed controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:50:07.833 +02:00 [Information] Executing action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" - Validation state: Valid
+2020-02-17 20:50:07.886 +02:00 [Information] Entity Framework Core "3.1.1" initialized '"StoreContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2020-02-17 20:50:07.888 +02:00 [Debug] '"StoreContext"' generated a temporary value for the '"Id"' property of new '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:50:07.888 +02:00 [Debug] Context '"StoreContext"' started tracking '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:50:07.888 +02:00 [Debug] SaveChanges starting for '"StoreContext"'.
+2020-02-17 20:50:07.889 +02:00 [Debug] DetectChanges starting for '"StoreContext"'.
+2020-02-17 20:50:07.889 +02:00 [Debug] DetectChanges completed for '"StoreContext"'.
+2020-02-17 20:50:07.889 +02:00 [Debug] Opening connection to database '"Lesson"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:50:07.910 +02:00 [Debug] Opened connection to database '"Lesson"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:50:07.912 +02:00 [Debug] Beginning transaction with isolation level '"Unspecified"'.
+2020-02-17 20:50:07.980 +02:00 [Debug] Began transaction with isolation level '"ReadCommitted"'.
+2020-02-17 20:50:08.083 +02:00 [Debug] Creating DbCommand for '"ExecuteReader"'.
+2020-02-17 20:50:08.105 +02:00 [Debug] Created DbCommand for '"ExecuteReader"' (5ms).
+2020-02-17 20:50:08.168 +02:00 [Debug] Executing DbCommand [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Users] ([AddressId], [Email], [FirstName], [LastName], [PhoneNumber])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();"
+2020-02-17 20:50:08.293 +02:00 [Information] Executed action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 459.4226ms.
+2020-02-17 20:50:08.294 +02:00 [Debug] View lookup cache hit for view '"Index"' in controller '"Home"'.
+2020-02-17 20:50:08.294 +02:00 [Information] Executing ViewResult, running view "Index".
+2020-02-17 20:50:08.294 +02:00 [Debug] The view path '"/Views/Home/Index.cshtml"' was found in 0.4087ms.
+2020-02-17 20:50:08.296 +02:00 [Debug] View lookup cache hit for view '"_Layout"' in controller '"Home"'.
+2020-02-17 20:50:08.301 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:50:08.302 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:50:08.302 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:50:08.303 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:50:08.303 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:50:08.303 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:50:08.304 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:50:08.304 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:50:08.304 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:50:08.304 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:50:08.304 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:50:08.304 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:50:08.318 +02:00 [Information] Executed ViewResult - view "Index" executed in 24.1731ms.
+2020-02-17 20:50:08.318 +02:00 [Information] Executed action "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" in 546.9787ms
+2020-02-17 20:50:08.318 +02:00 [Information] Executed endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:50:08.318 +02:00 [Debug] '"StoreContext"' disposed.
+2020-02-17 20:50:08.338 +02:00 [Error] Connection ID ""18230571306091282437"", Request ID ""80000008-0003-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Dispose(Boolean disposing)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Dispose()
+   at Microsoft.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.DisposeAsync()
+   at Microsoft.EntityFrameworkCore.Utilities.DisposableExtensions.DisposeAsyncIfAvailable(IDisposable disposable)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.DisposeAsync()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.DisposeAsync()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.<>c__DisplayClass15_0.<<DisposeAsync>g__Await|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.<>c__DisplayClass15_0.<<DisposeAsync>g__Await|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-02-17 20:50:08.598 +02:00 [Error] Failed executing DbCommand ("418"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Users] ([AddressId], [Email], [FirstName], [LastName], [PhoneNumber])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();"
+2020-02-17 20:50:08.628 +02:00 [Information] Request finished in 912.6236ms 200 text/html; charset=utf-8
+2020-02-17 20:51:19.622 +02:00 [Debug] Hosting starting
+2020-02-17 20:51:19.962 +02:00 [Information] User profile is available. Using '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-17 20:51:19.996 +02:00 [Debug] Reading data from file '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys\key-6ab06759-f620-4010-8e1b-306d8b3d3f90.xml"'.
+2020-02-17 20:51:20.176 +02:00 [Debug] Found key {6ab06759-f620-4010-8e1b-306d8b3d3f90}.
+2020-02-17 20:51:20.198 +02:00 [Debug] Considering key {6ab06759-f620-4010-8e1b-306d8b3d3f90} with expiration date 2020-05-17 18:47:13Z as default key.
+2020-02-17 20:51:20.300 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:51:20.304 +02:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-02-17 20:51:20.306 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:51:20.327 +02:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-02-17 20:51:20.333 +02:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-02-17 20:51:20.339 +02:00 [Debug] Using key {6ab06759-f620-4010-8e1b-306d8b3d3f90} as the default key.
+2020-02-17 20:51:20.340 +02:00 [Debug] Key ring with default key {6ab06759-f620-4010-8e1b-306d8b3d3f90} was loaded during application startup.
+2020-02-17 20:51:20.879 +02:00 [Debug] Loaded hosting startup assembly "IStore(WEB)"
+2020-02-17 20:51:20.896 +02:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-02-17 20:51:20.896 +02:00 [Information] Hosting environment: "Development"
+2020-02-17 20:51:20.896 +02:00 [Information] Content root path: "C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)"
+2020-02-17 20:51:20.896 +02:00 [Debug] Hosting started
+2020-02-17 20:51:21.029 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/  
+2020-02-17 20:51:21.035 +02:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-02-17 20:51:21.037 +02:00 [Debug] The request path "/" does not match a supported file type
+2020-02-17 20:51:21.094 +02:00 [Debug] 1 candidate(s) found for the request path '"/"'
+2020-02-17 20:51:21.101 +02:00 [Debug] Endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"' with route pattern '"{controller=Home}/{action=Index}/{id?}"' is valid for the request path '"/"'
+2020-02-17 20:51:21.103 +02:00 [Debug] Request matched endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:51:21.111 +02:00 [Information] Executing endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:51:21.129 +02:00 [Debug] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-02-17 20:51:21.198 +02:00 [Information] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)").
+2020-02-17 20:51:21.199 +02:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-02-17 20:51:21.200 +02:00 [Debug] Execution plan of "resource" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:51:21.200 +02:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)", "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2020-02-17 20:51:21.200 +02:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-02-17 20:51:21.200 +02:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:51:21.201 +02:00 [Debug] Executing controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:51:21.429 +02:00 [Debug] An 'IServiceProvider' was created for internal use by Entity Framework.
+2020-02-17 20:51:21.469 +02:00 [Debug] Executed controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:51:21.555 +02:00 [Information] Executing action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" - Validation state: Valid
+2020-02-17 20:51:22.643 +02:00 [Information] Entity Framework Core "3.1.1" initialized '"StoreContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2020-02-17 20:51:22.891 +02:00 [Debug] '"StoreContext"' generated a temporary value for the '"Id"' property of new '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:51:23.002 +02:00 [Debug] Context '"StoreContext"' started tracking '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-02-17 20:51:23.010 +02:00 [Debug] SaveChanges starting for '"StoreContext"'.
+2020-02-17 20:51:23.014 +02:00 [Debug] DetectChanges starting for '"StoreContext"'.
+2020-02-17 20:51:23.027 +02:00 [Debug] DetectChanges completed for '"StoreContext"'.
+2020-02-17 20:51:23.330 +02:00 [Debug] Opening connection to database '"_Lesson_"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:51:23.441 +02:00 [Information] Executed action method "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1878.038ms.
+2020-02-17 20:51:23.464 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Home/Index.cshtml"'.
+2020-02-17 20:51:23.464 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Home/Privacy.cshtml"'.
+2020-02-17 20:51:23.464 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/Error.cshtml"'.
+2020-02-17 20:51:23.464 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/_Layout.cshtml"'.
+2020-02-17 20:51:23.465 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/Shared/_ValidationScriptsPartial.cshtml"'.
+2020-02-17 20:51:23.465 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/_ViewImports.cshtml"'.
+2020-02-17 20:51:23.465 +02:00 [Debug] Initializing Razor view compiler with compiled view: '"/Views/_ViewStart.cshtml"'.
+2020-02-17 20:51:23.485 +02:00 [Debug] View lookup cache miss for view '"Index"' in controller '"Home"'.
+2020-02-17 20:51:23.499 +02:00 [Information] Executing ViewResult, running view "Index".
+2020-02-17 20:51:23.506 +02:00 [Debug] The view path '"/Views/Home/Index.cshtml"' was found in 15.7759ms.
+2020-02-17 20:51:23.605 +02:00 [Debug] View lookup cache miss for view '"_Layout"' in controller '"Home"'.
+2020-02-17 20:51:23.706 +02:00 [Error] An error occurred using the connection to database '"_Lesson_"' on server '"(localdb)\MSSQLLocalDB"'.
+2020-02-17 20:51:23.716 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:51:23.739 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:51:23.778 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:51:23.803 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:51:23.804 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "" and ""
+2020-02-17 20:51:23.804 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/"
+2020-02-17 20:51:23.805 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:51:23.806 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:51:23.806 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:51:23.808 +02:00 [Debug] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address "Microsoft.AspNetCore.Routing.RouteValuesAddress"
+2020-02-17 20:51:23.808 +02:00 [Debug] Successfully processed template "{controller=Home}/{action=Index}/{id?}" for "Route: {controller=Home}/{action=Index}/{id?}" resulting in "/Home/Privacy" and ""
+2020-02-17 20:51:23.808 +02:00 [Debug] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result "/Home/Privacy"
+2020-02-17 20:51:23.859 +02:00 [Information] Executed ViewResult - view "Index" executed in 375.9864ms.
+2020-02-17 20:51:23.864 +02:00 [Information] Executed action "IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))" in 2664.2487ms
+2020-02-17 20:51:23.870 +02:00 [Information] Executed endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:51:23.879 +02:00 [Debug] '"StoreContext"' disposed.
+2020-02-17 20:51:23.880 +02:00 [Error] An exception occurred in the database while saving changes for context type '"Domain.Context.StoreContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Не удается открыть базу данных \"_Lesson_\", запрашиваемую именем входа. Не удалось выполнить вход.
+При входе в систему пользователя \"ITSTEP1\sivorka\" произошла ошибка.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:8c827cbe-c277-47dc-a766-0bcfaf797f4c
+Error Number:4060,State:1,Class:11"
+Microsoft.Data.SqlClient.SqlException (0x80131904): Не удается открыть базу данных "_Lesson_", запрашиваемую именем входа. Не удалось выполнить вход.
+При входе в систему пользователя "ITSTEP1\sivorka" произошла ошибка.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:8c827cbe-c277-47dc-a766-0bcfaf797f4c
+Error Number:4060,State:1,Class:11
+2020-02-17 20:51:23.884 +02:00 [Information] Request finished in 2862.4883ms 200 text/html; charset=utf-8
+2020-02-17 20:53:29.299 +02:00 [Debug] Hosting starting
+2020-02-17 20:53:30.112 +02:00 [Information] User profile is available. Using '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-17 20:53:30.134 +02:00 [Debug] Reading data from file '"C:\Users\sivorka\AppData\Local\ASP.NET\DataProtection-Keys\key-6ab06759-f620-4010-8e1b-306d8b3d3f90.xml"'.
+2020-02-17 20:53:30.331 +02:00 [Debug] Found key {6ab06759-f620-4010-8e1b-306d8b3d3f90}.
+2020-02-17 20:53:30.423 +02:00 [Debug] Considering key {6ab06759-f620-4010-8e1b-306d8b3d3f90} with expiration date 2020-05-17 18:47:13Z as default key.
+2020-02-17 20:53:30.521 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:53:30.526 +02:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-02-17 20:53:30.586 +02:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-02-17 20:53:30.594 +02:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-02-17 20:53:30.598 +02:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-02-17 20:53:30.608 +02:00 [Debug] Using key {6ab06759-f620-4010-8e1b-306d8b3d3f90} as the default key.
+2020-02-17 20:53:30.608 +02:00 [Debug] Key ring with default key {6ab06759-f620-4010-8e1b-306d8b3d3f90} was loaded during application startup.
+2020-02-17 20:53:31.600 +02:00 [Debug] Loaded hosting startup assembly "IStore(WEB)"
+2020-02-17 20:53:31.601 +02:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-02-17 20:53:31.601 +02:00 [Information] Hosting environment: "Development"
+2020-02-17 20:53:31.601 +02:00 [Information] Content root path: "C:\Users\sivorka\Source\Repos\ISTORE-NEW-\src\IStore(WEB)\IStore(WEB)"
+2020-02-17 20:53:31.629 +02:00 [Debug] Hosting started
+2020-02-17 20:53:31.738 +02:00 [Information] Request starting HTTP/1.1 GET https://localhost:44389/  
+2020-02-17 20:53:31.748 +02:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-02-17 20:53:31.767 +02:00 [Debug] The request path "/" does not match a supported file type
+2020-02-17 20:53:31.826 +02:00 [Debug] 1 candidate(s) found for the request path '"/"'
+2020-02-17 20:53:31.832 +02:00 [Debug] Endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"' with route pattern '"{controller=Home}/{action=Index}/{id?}"' is valid for the request path '"/"'
+2020-02-17 20:53:31.834 +02:00 [Debug] Request matched endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:53:31.837 +02:00 [Information] Executing endpoint '"IStore_WEB_.Controllers.HomeController.Index (IStore(WEB))"'
+2020-02-17 20:53:31.867 +02:00 [Debug] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-02-17 20:53:31.992 +02:00 [Information] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)").
+2020-02-17 20:53:32.007 +02:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-02-17 20:53:32.007 +02:00 [Debug] Execution plan of "resource" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:53:32.008 +02:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)", "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2020-02-17 20:53:32.008 +02:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-02-17 20:53:32.008 +02:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2020-02-17 20:53:32.010 +02:00 [Debug] Executing controller factory for controller "IStore_WEB_.Controllers.HomeController" ("IStore(WEB)")
+2020-02-17 20:53:32.303 +02:00 [Debug] An 'IServiceProvider' was created for internal use by Entity Framework.
